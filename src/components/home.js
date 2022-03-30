@@ -3,17 +3,29 @@ import { onNavigate } from '../main.js';
 
 export const home = () => {
   const homeDiv = document.createElement('div');
-  const buttonRegister = document.createElement('button');
+  homeDiv.id = 'homeDiv';
+  homeDiv.className = 'homeDiv';
   const buttonLogin = document.createElement('button');
+  buttonLogin.id = 'btnLogin';
+  buttonLogin.className = 'btnSingin';
+  const buttonLoginWithGoogle = document.createElement('button');
+  buttonLoginWithGoogle.id = 'btnLoginWithGoogle';
+  buttonLoginWithGoogle.className = 'btnSingin';
+  const buttonRegister = document.createElement('button');
+  buttonRegister.id = 'btnRegister';
+  buttonRegister.className = 'btnSingin';
 
-  buttonRegister.textContent = 'Registrate';
-  buttonLogin.textContent = 'Inicia Sesión';
+  buttonLogin.textContent = 'Ingresar';
+  buttonLoginWithGoogle.textContent = 'Inicia con Google';
+  buttonRegister.textContent = 'Registrate aquí';
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
+  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/LoginWithGoogle'));
 
-  homeDiv.appendChild(buttonRegister);
   homeDiv.appendChild(buttonLogin);
+  homeDiv.appendChild(buttonLoginWithGoogle);
+  homeDiv.appendChild(buttonRegister);
 
   return homeDiv;
 };
