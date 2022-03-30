@@ -1,7 +1,74 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Raleway';
+}
 body{
+    background-image: url(./imgns/img_background2\ 1flechas.png);
+   }
+.containerBody{
+    background: rgba(0, 0, 0, 0.4);
     width: 411px;
     height: 799px;
-    top: 24px;
     position: absolute;
     left: 0px;
-   }
+}
+.pInitial{
+    position: absolute;
+height: 87px;
+left: 9.98%;
+right: 28.71%;
+top: calc(50% - 87px/2 + 82px);
+font-style: normal;
+font-weight: 800;
+font-size: 25px;
+line-height: 29px;
+color: #FFFFFF;
+
+}
+.homeDiv{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+.btnSingin{
+    width: 340px;
+    height: 48px;
+    font-size: 100%;
+    margin: auto 10%;
+    border-radius: 10px;
+    border: none;
+}
+#btnLogin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px 140px;
+    position: absolute;
+    top: 569.93px;
+    background: #65B2C6;
+}
+#btnLoginWithGoogle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px 100px;
+    position: absolute;
+    top: 633.43px;
+    border: 1px solid #FFFFFF;
+    background: rgba(0, 0, 0, 0);
+    color: white;
+}
+#btnRegister{
+    position: absolute;
+    top: 738px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    text-decoration-line: underline;
+}

@@ -5,6 +5,9 @@ export const home = () => {
   const homeDiv = document.createElement('div');
   homeDiv.id = 'homeDiv';
   homeDiv.className = 'homeDiv';
+  const paragraph = document.createElement('p');
+  paragraph.id = 'pInitial';
+  paragraph.className = 'pInitial';
   const buttonLogin = document.createElement('button');
   buttonLogin.id = 'btnLogin';
   buttonLogin.className = 'btnSingin';
@@ -15,6 +18,7 @@ export const home = () => {
   buttonRegister.id = 'btnRegister';
   buttonRegister.className = 'btnSingin';
 
+  paragraph.textContent = 'Ingresa y conoce todo sobre el mundo de Social Travel';
   buttonLogin.textContent = 'Ingresar';
   buttonLoginWithGoogle.textContent = 'Inicia con Google';
   buttonRegister.textContent = 'Registrate aquí';
@@ -23,6 +27,7 @@ export const home = () => {
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
   buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/LoginWithGoogle'));
 
+  homeDiv.appendChild(paragraph);
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonLoginWithGoogle);
   homeDiv.appendChild(buttonRegister);
