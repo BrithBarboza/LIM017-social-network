@@ -3,7 +3,9 @@ import { onNavigate } from '../main.js'; /* la fx para crear el url. */
 
 export const register = () => {
   const homeDiv = document.createElement('div');
-  const templateRegister = `<h1 id= "createdAccount" class = "Welcome">
+  homeDiv.className = 'showbackground';
+  const templateRegister = `<div id =containerGrid" class= "conatinerGrid>
+  <h1 id= "createdAccount" class = "Welcome">
   Crear cuenta</h1>
   <p id = "introduction" class = "paragraph">
    Crea una cuenta y conoce nuevos lugares en Social Travel</p>
@@ -15,6 +17,7 @@ export const register = () => {
    <input type = "text" placeholder = "Ingrese nuevamente su correo electrónico" id ="emailRegister">
    <label id = "paswordLabel" class = "label"> Contraseña </label>
    <input type = "text" placeholder = "Ingrese una contraseña segura" id ="password">
+   </div>
   `;
   homeDiv.innerHTML += templateRegister;
 

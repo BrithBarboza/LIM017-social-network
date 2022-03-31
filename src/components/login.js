@@ -16,7 +16,7 @@ export const Login = () => {
   const label1 = document.createElement('label');
   label1.textContent = 'Correo electrónico'; /* Revisar cómo hacer independiente este label */
   label1.id = 'label1';
-  label1.className = 'label1';
+  label1.className = 'label';
 
   const inputEmail = document.createElement('input');
   inputEmail.placeholder = 'Ingresa tu correo electronico';
@@ -26,7 +26,7 @@ export const Login = () => {
   const label2 = document.createElement('label');
   label2.textContent = 'Contraseña'; /* Revisar cómo hacer independiente este label */
   label2.id = 'label2';
-  label2.className = 'label2';
+  label2.className = 'label';
 
   const inputPass = document.createElement('input');
   inputPass.placeholder = 'Ingresa tu contraseña';
