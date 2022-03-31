@@ -5,15 +5,19 @@ export const home = () => {
   const homeDiv = document.createElement('div');
   homeDiv.id = 'homeDiv';
   homeDiv.className = 'homeDiv';
+
   const paragraph = document.createElement('p');
   paragraph.id = 'pInitial';
   paragraph.className = 'pInitial';
+
   const buttonLogin = document.createElement('button');
   buttonLogin.id = 'btnLogin';
   buttonLogin.className = 'btnSingin';
+
   const buttonLoginWithGoogle = document.createElement('button');
   buttonLoginWithGoogle.id = 'btnLoginWithGoogle';
   buttonLoginWithGoogle.className = 'btnSingin';
+
   const buttonRegister = document.createElement('button');
   buttonRegister.id = 'btnRegister';
   buttonRegister.className = 'btnSingin';
