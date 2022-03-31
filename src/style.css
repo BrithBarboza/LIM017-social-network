@@ -6,13 +6,24 @@
 }
 body{
     background-image: url(./imgns/img_background2\ 1flechas.png);
+
+
    }
-.containerBody{
+   .showbackground{
+       background-color: #FFFFFF;
+       width: 411px;
+    height: 799px;
+    position: absolute;
+    left: 0px;
+   }
+   .containerBody{
     background: rgba(0, 0, 0, 0.4);
+
     width: 411px;
     height: 799px;
     position: absolute;
     left: 0px;
+
 }
 .pInitial{
     position: absolute;
