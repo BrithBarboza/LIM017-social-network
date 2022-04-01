@@ -1,3 +1,5 @@
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
 

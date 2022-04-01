@@ -34,6 +34,7 @@ export const home = () => {
     showBackground.classList.toggle('showbackground');
     return visibleBackground;
   }
+
   buttonLogin.addEventListener('click', visibleBackground);
 
   buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/loginWithGoogle'));
