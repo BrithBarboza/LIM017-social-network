@@ -29,7 +29,14 @@ export const home = () => {
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
-  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/LoginWithGoogle'));
+  function visibleBackground() {
+    const showBackground = document.getElementById('root');
+    showBackground.classList.toggle('showbackground');
+    return visibleBackground;
+  }
+  buttonLogin.addEventListener('click', visibleBackground);
+
+  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/loginWithGoogle'));
 
   homeDiv.appendChild(paragraph);
   homeDiv.appendChild(buttonLogin);
