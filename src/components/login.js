@@ -41,12 +41,13 @@ export const Login = () => {
 
   /* homeDiv.appendChild(form); */
   /* homeDiv.appendChild(Welcome); */
-  homeDiv.insertAdjacentElement('beforeend', Welcome);
-  homeDiv.insertAdjacentElement('beforeend', label1);
-  homeDiv.insertAdjacentElement('beforeend', inputEmail);
-  homeDiv.insertAdjacentElement('beforeend', label2);
-  homeDiv.insertAdjacentElement('beforeend', inputPass);
-  homeDiv.insertAdjacentElement('beforeend', buttonHome);
+
+  homeDiv.insertAdjacentElement("beforeend", Welcome);
+  homeDiv.insertAdjacentElement("beforeend", label1);
+  homeDiv.insertAdjacentElement("beforeend", inputEmail);
+  homeDiv.insertAdjacentElement("beforeend", label2);
+  homeDiv.insertAdjacentElement("beforeend", inputPass);
+  homeDiv.insertAdjacentElement("beforeend", buttonHome);
 
   /* homeDiv.appendChild(label1);
   homeDiv.appendChild(inputEmail);
