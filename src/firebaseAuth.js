@@ -9,19 +9,19 @@ import { app } from './Config.js';
 
 const auth = getAuth(app);
 
-// export const registerWithEmail = (email, password) => {
-//   createUserWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//     // Signed in
-//       const user = userCredential.user;
-//     // ...
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//     // ..
-//     });
-// };
+export const registerWithEmail = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    // Signed in
+      const user = userCredential.user;
+    // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    // ..
+    });
+};
 
 const provider = new GoogleAuthProvider();
 

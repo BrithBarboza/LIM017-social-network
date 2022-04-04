@@ -3,7 +3,7 @@ import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { Login } from './components/login.js';
 import { LoginWithGoogle } from './components/loginWithGoogle.js';
-import { registerWithGoogle } from './firebaseAuth.js';
+import { registerWithGoogle, registerWithEmail } from './firebaseAuth.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -34,7 +34,12 @@ window.onpopstate = () => {
 };
 
 rootDiv.appendChild(component());
+
 const btnLoginWithGoogle = document.querySelector('#btnLoginWithGoogle');
 btnLoginWithGoogle.addEventListener('click', () => {
   registerWithGoogle();
 });
+// const sendInfoUser = document.querySelector('#sendInfo');
+// sendInfoUser.addEventListener('click', () => {
+//   registerWithEmail();
+// });

@@ -1,15 +1,32 @@
-*{
+* {
     margin: 0;
-    padding:0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Raleway';
 }
-body{
+
+body {
     background-image: url(./imgns/img_background2\ 1flechas.png);
 
 
-   }
-   .showbackground{
+}
+
+input {
+
+    border: 1px solid #2b2b2b;
+    border-radius: 5px;
+    margin: 10px 0 0;
+    padding: 8px;
+
+}
+
+label {
+    padding-top: 20px;
+    color: #2b2b2b;
+    font-weight: 1000;
+}
+
+.showbackground {
     background-color: #FFFFFF;
     position: absolute;
     /* margin: 50px 30px; */
@@ -18,23 +35,13 @@ body{
     gap: 10px;
     width: 411px;
     height: 799px;
-    padding: 20px;
-    
-   }
-   label{
-       padding-top: 20px;
-       color: #2b2b2b;
-       font-weight: 1000;
+    padding: 50px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
 }
-input{
-    
-    border: 1px solid #2b2b2b;
-    border-radius: 5px;
-    margin: 10px 0 0;
-    padding: 8px;
 
-}
-   .containerBody{
+.containerBody {
     background: rgba(0, 0, 0, 0.4);
     width: 411px;
     height: 799px;
@@ -42,25 +49,36 @@ input{
     left: 0px;
 
 }
-.pInitial{
+
+.pInitial {
     position: absolute;
-height: 87px;
-left: 9.98%;
-right: 28.71%;
-top: calc(50% - 87px/2 + 82px);
-font-style: normal;
-font-weight: 800;
-font-size: 25px;
-line-height: 29px;
-color: #FFFFFF;
+    height: 87px;
+    left: 9.98%;
+    right: 28.71%;
+    top: calc(50% - 87px/2 + 82px);
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 29px;
+    color: #FFFFFF;
 
 }
-.homeDiv{
+.sendInfo{
+    background: #65B2C6;
+    border: none;
+    color: #2b2b2b;
+    font-weight: bolder;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.homeDiv {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     gap: 20px;
 }
-.btnSingin{
+
+.btnSingin {
     width: 340px;
     height: 48px;
     font-size: 100%;
@@ -68,7 +86,8 @@ color: #FFFFFF;
     border-radius: 10px;
     border: none;
 }
-#btnLogin{
+
+#btnLogin {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -77,7 +96,8 @@ color: #FFFFFF;
     top: 569.93px;
     background: #65B2C6;
 }
-#btnLoginWithGoogle{
+
+#btnLoginWithGoogle {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -88,7 +108,8 @@ color: #FFFFFF;
     background: rgba(0, 0, 0, 0);
     color: white;
 }
-#btnRegister{
+
+#btnRegister {
     position: absolute;
     top: 738px;
     font-style: normal;
@@ -100,10 +121,18 @@ color: #FFFFFF;
     color: white;
     text-decoration-line: underline;
 }
-#inputEmail{
-    color: black;
+#buttonHome{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    text-decoration-line: underline;
 }
 
-.label{
-    background-color: red;
+#formulario {
+    display: grid;
+    gap: 15px;
+
+}
+
+#inputEmail {
+    color: black;
 }
