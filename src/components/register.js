@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
-import { registerWithEmail } from '../firebaseAuth.js';
+// import { registerWithEmail } from '../firebaseAuth.js';
 export const register = () => {
   const homeDiv = document.createElement('div');
   homeDiv.className = 'showbackground';
-  const templateRegister = `<div id =containerGrid" class= "conatinerGrid>
+  const templateRegister = `
   <h1 id= "createdAccount" class = "Welcome">
   Crear cuenta</h1>
   <p id = "introduction" class = "paragraph">
@@ -18,7 +18,7 @@ export const register = () => {
    <label id = "paswordLabel" class = "label"> Contraseña </label>
    <input type = "text" placeholder = "Ingrese una contraseña segura" id ="password">
    <button id = "sendInfo" type = "send" class ="sendInfo"> Enviar </button>
-   </div>
+   
   `;
   homeDiv.innerHTML += templateRegister;
 

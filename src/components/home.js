@@ -29,6 +29,8 @@ export const home = () => {
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
+  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/loginWithGoogle'));
+
   function visibleBackground() {
     const showBackground = document.getElementById('root');
     showBackground.classList.toggle('showbackground');
@@ -37,8 +39,6 @@ export const home = () => {
 
   buttonLogin.addEventListener('click', visibleBackground);
 
-  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/loginWithGoogle'));
-
   homeDiv.appendChild(paragraph);
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonLoginWithGoogle);
@@ -46,3 +46,5 @@ export const home = () => {
 
   return homeDiv;
 };
+
+// este evento debe llamarse solo despues de que el div del hom aparezca,
