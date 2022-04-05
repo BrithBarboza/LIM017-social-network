@@ -7,7 +7,8 @@ export const LoginWithGoogle = () => {
 
   const buttonHome = document.createElement('button');
 
-  buttonHome.textContent = '¿Ya tienes cuenta? Ingresa Aquí';
+  buttonHome.textContent = 'Cerrar sesión';
+  buttonHome.className = 'signOut';
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
