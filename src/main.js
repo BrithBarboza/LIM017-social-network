@@ -39,7 +39,30 @@ const btnLoginWithGoogle = document.querySelector('#btnLoginWithGoogle');
 btnLoginWithGoogle.addEventListener('click', () => {
   registerWithGoogle();
 });
-// const sendInfoUser = document.querySelector('#sendInfo');
-// sendInfoUser.addEventListener('click', () => {
-//   registerWithEmail();
-// });
+
+/* Para mostrar contraseña */
+export function showPassword(eyeOpen, eyeClose, password) {
+  const eyeOpens = document.getElementById(eyeOpen);
+  const eyeCloses = document.getElementById(eyeClose);
+  const password0 = document.getElementById(password);
+  eyeOpens.addEventListener('click', () => {
+    eyeOpens.style.display = 'none';
+    eyeCloses.style.display = '';
+    password0.setAttribute('type', 'text');
+  });
+}
+export function hidePassword(eyeOpen, eyeClose, password) {
+  const eyeOpens = document.getElementById(eyeOpen);
+  const eyeCloses = document.getElementById(eyeClose);
+  const password0 = document.getElementById(password);
+  eyeCloses.addEventListener('click', () => {
+    eyeOpens.style.display = '';
+    eyeCloses.style.display = 'none';
+    password0.setAttribute('type', 'text');
+  });
+}
+
+const sendInfoUser = document.querySelector('#sendInfo');
+sendInfoUser.addEventListener('click', () => {
+  registerWithEmail();
+});

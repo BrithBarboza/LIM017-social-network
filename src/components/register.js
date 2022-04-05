@@ -17,7 +17,9 @@ export const register = () => {
    <label for = "emailRegister2" class = "label"> Confirmar correo electrónico </label>
    <input type = "text" placeholder = "Ingrese nuevamente su correo electrónico" id ="emailRegister2">
    <label for = "password" class = "label"> Contraseña </label>
-   <input type = "text" placeholder = "Ingrese una contraseña segura" id ="password">
+   <input type = "password" placeholder = "Ingrese una contraseña segura" id ="password">
+   <img src="./imgns/visibility_black_24dp.svg" alt="eye" id="eyeOpen">
+   <img src="./imgns/visibility_off_black_24dp.svg" alt="eye" id="eyeClose" style="display:none;">
    <button id = "sendInfo" type = "send" class ="sendInfo"> Crear Cuenta </button>
    </form>   
   `;
