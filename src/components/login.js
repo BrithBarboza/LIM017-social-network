@@ -39,8 +39,7 @@ export const Login = () => {
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
-  /* homeDiv.appendChild(form); */
-  /* homeDiv.appendChild(Welcome); */
+
 
   homeDiv.insertAdjacentElement('beforeend', Welcome);
   homeDiv.insertAdjacentElement('beforeend', label1);
@@ -49,11 +48,23 @@ export const Login = () => {
   homeDiv.insertAdjacentElement('beforeend', inputPass);
   homeDiv.insertAdjacentElement('beforeend', buttonHome);
 
-  /* homeDiv.appendChild(label1);
-  homeDiv.appendChild(inputEmail);
-  homeDiv.appendChild(label2);
-  homeDiv.appendChild(inputPass);
-  homeDiv.appendChild(buttonHome); */
+ 
 
   return homeDiv;
 };
+
+/* export const LoginWithGoogle = () => {
+  const homeDiv = document.createElement('div');
+  homeDiv.textContent = 'AQUI VA el feed';
+
+  const buttonHome = document.createElement('button');
+
+  buttonHome.textContent = 'Cerrar sesión';
+  buttonHome.className = 'signOut';
+
+  buttonHome.addEventListener('click', () => onNavigate('/'));
+
+  homeDiv.appendChild(buttonHome);
+
+  return homeDiv;
+}; */

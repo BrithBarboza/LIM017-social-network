@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
+import { registerWithGoogle } from '../firebaseAuth.js';
 
 export const home = () => {
   const homeDiv = document.createElement('div');
@@ -29,7 +30,7 @@ export const home = () => {
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
-  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/loginWithGoogle'));
+  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/feed'));
 
   function visibleBackground() {
     const showBackground = document.getElementById('root');
@@ -39,12 +40,23 @@ export const home = () => {
 
   buttonLogin.addEventListener('click', visibleBackground);
 
+
   homeDiv.appendChild(paragraph);
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonLoginWithGoogle);
   homeDiv.appendChild(buttonRegister);
 
   return homeDiv;
+
+};
+
+if (home === homeDiv) {
+  const btnLoginWithGoogle = document.querySelector('#btnLoginWithGoogle');
+  btnLoginWithGoogle.addEventListener('click', () => {
+    registerWithGoogle();
+  });
+} else{
+
 };
 
 // este evento debe llamarse solo despues de que el div del hom aparezca,
