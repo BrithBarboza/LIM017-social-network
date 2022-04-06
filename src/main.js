@@ -2,8 +2,8 @@
 import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { Login } from './components/login.js';
-import { LoginWithGoogle } from './components/loginWithGoogle.js';
-import { registerWithGoogle, registerWithEmail } from './firebaseAuth.js';
+/* import { registerWithGoogle, registerWithEmail } from './firebaseAuth.js'; */
+import { feed } from './components/feed.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -11,7 +11,8 @@ const routes = {
   '/': home,
   '/register': register,
   '/login': Login,
-  '/loginWithGoogle': LoginWithGoogle,
+  '/feed': feed,
+  /* '/loginWithGoogle': LoginWithGoogle, */
 
 };
 
@@ -35,10 +36,7 @@ window.onpopstate = () => {
 
 rootDiv.appendChild(component());
 
-const btnLoginWithGoogle = document.querySelector('#btnLoginWithGoogle');
-btnLoginWithGoogle.addEventListener('click', () => {
-  registerWithGoogle();
-});
+
 
 /* Para mostrar contraseña */
 export function showPassword(eyeOpen, eyeClose, password) {
