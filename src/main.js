@@ -2,7 +2,7 @@
 import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { Login } from './components/login.js';
-/* import { registerWithGoogle, registerWithEmail } from './firebaseAuth.js'; */
+// import { registerWithGoogle, registerWithEmail } from './firebaseAuth.js';
 import { feed } from './components/feed.js';
 
 const rootDiv = document.getElementById('root');
@@ -36,7 +36,10 @@ window.onpopstate = () => {
 
 rootDiv.appendChild(component());
 
-
+// const btnLoginWithGoogle = document.querySelector('#btnLoginWithGoogle');
+// btnLoginWithGoogle.addEventListener('click', () => {
+//   registerWithGoogle();
+// });
 
 /* Para mostrar contraseña */
 export function showPassword(eyeOpen, eyeClose, password) {
@@ -60,7 +63,7 @@ export function hidePassword(eyeOpen, eyeClose, password) {
   });
 }
 
-const sendInfoUser = document.querySelector('#sendInfo');
-sendInfoUser.addEventListener('click', () => {
-  registerWithEmail();
-});
+// const sendInfoUser = document.querySelector('#sendInfo');
+// sendInfoUser.addEventListener('click', () => {
+//   registerWithEmail();
+// });

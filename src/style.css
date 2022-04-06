@@ -24,19 +24,13 @@ label {
     font-weight: 1000;
 }
 
-.showbackground {
-    background-color: #FFFFFF;
-    position: absolute;
-    /* margin: 50px 30px; */
-    display: grid;
-    grid-template-rows: repeat(11, 1fr);
-    gap: 10px;
-    width: 411px;
-    height: 799px;
-    padding: 50px;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px;
+.btnSingin {
+    width: 340px;
+    height: 48px;
+    font-size: 100%;
+    margin: auto 10%;
+    border-radius: 10px;
+    border: none;
 }
 
 .containerBody {
@@ -45,6 +39,15 @@ label {
     height: 799px;
     position: absolute;
     left: 0px;
+}
+.hide {
+    display: none;
+}
+
+.homeDiv {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .pInitial {
@@ -60,6 +63,22 @@ label {
     color: #FFFFFF;
 
 }
+
+.showbackground {
+    background-color: #FFFFFF;
+    position: absolute;
+    /* margin: 50px 30px; */
+    display: grid;
+    grid-template-rows: repeat(11, 1fr);
+    gap: 10px;
+    width: 411px;
+    height: 799px;
+    padding: 50px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+}
+
 .sendInfo{
     padding: 3%;
     background: #65B2C6;
@@ -68,21 +87,6 @@ label {
     font-weight: bolder;
     font-size: 20px;
     border-radius: 10px;
-}
-
-.homeDiv {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.btnSingin {
-    width: 340px;
-    height: 48px;
-    font-size: 100%;
-    margin: auto 10%;
-    border-radius: 10px;
-    border: none;
 }
 
 #btnLogin {
