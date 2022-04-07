@@ -2,8 +2,8 @@
 import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { Login } from './components/login.js';
-// import { registerWithGoogle, registerWithEmail } from './firebaseAuth.js';
 import { feed } from './components/feed.js';
+import { registerWithEmail } from './firebaseAuth.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -41,6 +41,18 @@ rootDiv.appendChild(component());
 //   registerWithGoogle();
 // });
 
+if (homeDiv === templateRegister) {
+  const btnSendForm = document.getElementById('sendInfo');
+
+  btnSendForm.addEventListener('click', () => {
+    const email = document.getElementById('emailRegister').value;
+    const password = document.getElementById('password').value;
+    console.log(email);
+
+    console.log(password);
+    registerWithEmail(email, password);
+  });
+}
 /* Para mostrar contraseña */
 export function showPassword(eyeOpen, eyeClose, password) {
   const eyeOpens = document.getElementById(eyeOpen);
@@ -62,8 +74,3 @@ export function hidePassword(eyeOpen, eyeClose, password) {
     password0.setAttribute('type', 'text');
   });
 }
-
-// const sendInfoUser = document.querySelector('#sendInfo');
-// sendInfoUser.addEventListener('click', () => {
-//   registerWithEmail();
-// });

@@ -1,5 +1,7 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
+import { registerWithEmail } from '../firebaseAuth.js';
 
 export const register = () => {
   const homeDiv = document.createElement('div');
@@ -21,10 +23,10 @@ export const register = () => {
    <input type = "text" placeholder = "Ingresa nombres y apellidos" id ="nameAndFirstname" required>
    <label for="emailRegister" class = "label"> Correo electrónico </label>
    <input type = "email" placeholder = "Ingrese su correo electrónico" id ="emailRegister"
-   pattern="/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i" required>
+   required>
    <label for = "emailRegister2" class = "label"> Confirmar correo electrónico </label>
    <input type = "text" placeholder = "Ingrese nuevamente su correo electrónico" id ="emailRegister2" 
-   pattern="/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i" required>
+   required>
    <label for = "password" class = "label"> Contraseña </label>
    <input type = "password" placeholder = "Ingrese una contraseña con máximo 16 caracteres" 
    id ="password" minlength="6" maxlength="16" required>
