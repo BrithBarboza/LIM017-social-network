@@ -1,7 +1,6 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
-import { registerWithEmail } from '../firebaseAuth.js';
 
 export const register = () => {
   const homeDiv = document.createElement('div');
@@ -13,9 +12,7 @@ export const register = () => {
    Crea una cuenta y conoce nuevos lugares en Social Travel</p>
 
     <!-- Mensajes de Verificación -->
-   <div id="error" class="alertDanger hide" role="alert">
-    ¡ El Correo no es válido, vuelve a intentar !
-   </div>
+   <div id="error" class="alertDanger hide" role="alert"></div>
     <!-- Fin Mensajes de Verificación -->
 
    <form action="" id="formulario">
@@ -32,7 +29,7 @@ export const register = () => {
    id ="password" minlength="6" maxlength="16" required>
    <img src="./imgns/visibility_black_24dp.svg" alt="eye" id="eyeOpen">
    <img src="./imgns/visibility_off_black_24dp.svg" alt="eye" id="np" style="display:none;">
-   <input id = "sendInfo" type = "submit" class ="sendInfo" value="Crear cuenta"> 
+   <input  type = "submit" class ="sendInfo" id = "sendInfo" value="Crear cuenta"> 
    </form>   
   `;
   homeDiv.innerHTML += templateRegister;

@@ -7,6 +7,10 @@ export const home = () => {
   homeDiv.id = 'homeDiv';
   homeDiv.className = 'homeDiv';
 
+  const logo = document.createElement('img');
+  logo.setAttribute('src', './imgns/Vectorlogo.svg');
+  logo.className = 'logoSocialTravel';
+
   const paragraph = document.createElement('p');
   paragraph.id = 'pInitial';
   paragraph.className = 'pInitial';
@@ -36,6 +40,7 @@ export const home = () => {
     registerWithGoogle();
   });
 
+  homeDiv.appendChild(logo);
   homeDiv.appendChild(paragraph);
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonLoginWithGoogle);

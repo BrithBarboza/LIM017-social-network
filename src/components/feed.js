@@ -1,13 +1,11 @@
 /* import { onNavigate } from '../main.js'; */
 
 export const feed = () => {
-const feedDiv = document.createElement('div');
+  const feedDiv = document.createElement('div');
 
+  feedDiv.textContent = 'Aquí va el feed';
 
-feedDiv.textContent = 'Aquí va el feed';
+  /* feedDiv.appendChild(feedDiv); */
 
-
-/* feedDiv.appendChild(feedDiv); */
-
-return feedDiv;
-}
+  return feedDiv;
+};

@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './Config.js';
 
@@ -22,7 +23,22 @@ export const registerWithEmail = (email, password) => {
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
-    // ..
+      if (errorCode === 'auth/email-already-in-use') {
+        alert('Otro usuario ya está utilizando el correo electrónico proporcionado.');
+      } else if (errorCode === 'auth/weak-password'
+      ) {
+        alert('La constraseña no es válida. Debe contener al menos seis caracteres.');
+      } else if (errorCode === 'auth/invalid-email') {
+        alert('La direccióm de correo electrónico ingresada no es válida.');
+      } else if (errorCode === true) {
+        alert('errorMessage');
+      }
+    });
+
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+    // Email verification sent!
+    // ...
     });
 };
 
