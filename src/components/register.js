@@ -12,7 +12,7 @@ export const register = () => {
    Crea una cuenta y conoce nuevos lugares en Social Travel</p>
 
     <!-- Mensajes de Verificación -->
-   <div id="error" class="alertDanger hide" role="alert"></div>
+    <p id="error" class="alertDanger " role="alert"></p>
     <!-- Fin Mensajes de Verificación -->
 
    <form action="" id="formulario">

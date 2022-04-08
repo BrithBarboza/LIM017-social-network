@@ -40,13 +40,14 @@ label {
 }
 
 .containerBody {
-    
+
     background: rgba(0, 0, 0, 0.3);
     width: 411px;
     height: 799px;
     position: absolute;
     left: 0px;
 }
+
 .hide {
     display: none;
 }
@@ -83,7 +84,7 @@ label {
     gap: 20px;
 }
 
-.sendInfo{
+.sendInfo {
     padding: 3%;
     background: #65B2C6;
     border: none;
@@ -129,7 +130,8 @@ label {
     color: white;
     text-decoration-line: underline;
 }
-#buttonHome{
+
+#buttonHome {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     text-decoration-line: underline;
@@ -145,7 +147,17 @@ label {
     color: black;
 }
 
-.signOut{
+.showMessageError {
+    color: red;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    background-color: pink;
+    text-align: center;
+    padding: 5px;
+    border: solid 1px;
+}
+
+.signOut {
     display: flex;
     margin: 12.5%;
     padding: 14px 70px;
@@ -156,11 +168,12 @@ label {
 }
 
 /* --------------MediaQuery-------------- */
-@media screen and (min-width:700px){
-    body{
-      background-image: url(./imgns/fondoflechas.png);
-      background-size: cover;
+@media screen and (min-width:700px) {
+    body {
+        background-image: url(./imgns/fondoflechas.png);
+        background-size: cover;
     }
+
     .containerBody {
         background: rgba(0, 0, 0, 0.4);
         width: 100%;
@@ -168,30 +181,84 @@ label {
         position: absolute;
         left: 0px;
     }
+
     .homeDiv {
         display: grid;
         grid-template-rows: repeat(3, 1fr);
         gap: 20px;
     }
+
     img.logoSocialTravel {
         position: absolute;
         width: 170px;
         height: 63px;
         left: 217px;
-        top: 164px;
+        top: 15%;
         display: flex;
-        
-    
+
+
     }
-    .pInitial{
-    height: 58px;
-    right: 59.3%;
-    top: calc(50% - 90px / 2 - 72px);
-    font-style: normal;
-    font-weight: 800;
-    font-size: 25px;
-    line-height: 29px;
-    text-align: center;
-    color: #FFFFFF;
-   }
+
+    #btnLoginWithGoogle {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 14px 90px;
+        position: absolute;
+        top: 60%;
+        border: 1px solid #FFFFFF;
+        background: rgba(0, 0, 0, 0);
+        color: white;
+        font-size: 20px;
+        margin-left: 13.5%;
+
+    }
+
+    #btnLogin {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 14px 140px;
+        position: absolute;
+        top: 50%;
+        background: #65B2C6;
+        font-size: 20px;
+        margin-left: 13.5%;
+    }
+    #btnRegister {
+        position: absolute;
+        top: 70%;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 18px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0);
+        color: white;
+        text-decoration-line: underline;
+        margin-left: 13.5%;
+    }
+
+
+    .pInitial {
+        height: 58px;
+        right: 59.3%;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 29px;
+        text-align: center;
+        color: #FFFFFF;
+        width: 440px;
+        top: 35%;
+    }
+    .planeImg{
+        position: absolute;
+        top:58%;
+    }
+
+    .showMessageError {
+        padding: 5px;
+        border: solid 1px;
+    }
 }

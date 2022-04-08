@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  sendEmailVerification,
+  // sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './Config.js';
 
@@ -20,26 +20,32 @@ export const registerWithEmail = (email, password) => {
     })
     .catch((error) => {
       const errorCode = error.code;
-      console.log(errorCode);
+      // console.log(errorCode);
       const errorMessage = error.message;
-      console.log(errorMessage);
+      // console.log(errorMessage);
+      const callAlertParagraph = document.querySelector('#error');
+
       if (errorCode === 'auth/email-already-in-use') {
-        alert('Otro usuario ya está utilizando el correo electrónico proporcionado.');
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = 'Otro usuario ya está utilizando el correo electrónico proporcionado.';
       } else if (errorCode === 'auth/weak-password'
       ) {
-        alert('La constraseña no es válida. Debe contener al menos seis caracteres.');
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = 'La constraseña no es válida. Debe contener al menos seis caracteres.';
       } else if (errorCode === 'auth/invalid-email') {
-        alert('La direccióm de correo electrónico ingresada no es válida.');
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = 'La direccióm de correo electrónico ingresada no es válida.';
       } else if (errorCode === true) {
-        alert('errorMessage');
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = errorMessage;
       }
     });
 
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
-    // Email verification sent!
-    // ...
-    });
+  // sendEmailVerification(auth.currentUser)
+  //   .then(() => {
+  //   // Email verification sent!
+  //   // ...
+  //   });
 };
 
 const provider = new GoogleAuthProvider();

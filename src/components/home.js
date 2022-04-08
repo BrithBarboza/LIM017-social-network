@@ -32,6 +32,10 @@ export const home = () => {
   buttonLoginWithGoogle.textContent = 'Inicia con Google';
   buttonRegister.textContent = 'Registrate aquí';
 
+  const planeImg = document.createElement('img');
+  planeImg.setAttribute('src', './imgns/avion.svg');
+  planeImg.classList = 'planeImg';
+
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
   buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/feed'));
@@ -45,6 +49,7 @@ export const home = () => {
   homeDiv.appendChild(buttonLogin);
   homeDiv.appendChild(buttonLoginWithGoogle);
   homeDiv.appendChild(buttonRegister);
+  homeDiv.appendChild(planeImg);
 
   return homeDiv;
 };
