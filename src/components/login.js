@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
+import { LoginByEmailPassword } from '../firebaseAuth.js';
 
 export const Login = () => {
   const homeDiv = document.createElement('div');
@@ -33,6 +34,11 @@ export const Login = () => {
   inputPass.type = 'text';
   inputPass.id = 'inputPass';
 
+  const btnLogin = document.createElement('button');
+  btnLogin.id = 'btnLogin';
+  btnLogin.className = 'btnLogin';
+  btnLogin.textContent = 'Inicia Sesión';
+
   const buttonHome = document.createElement('button');
 
   buttonHome.textContent = 'Regresar al Home';
@@ -44,7 +50,21 @@ export const Login = () => {
   homeDiv.insertAdjacentElement('beforeend', inputEmail);
   homeDiv.insertAdjacentElement('beforeend', label2);
   homeDiv.insertAdjacentElement('beforeend', inputPass);
+  homeDiv.insertAdjacentElement('beforeend', btnLogin);
   homeDiv.insertAdjacentElement('beforeend', buttonHome);
+
+  btnLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = homeDiv.querySelector('#inputEmail').value;
+    const password = homeDiv.querySelector('#inputPass').value;
+    LoginByEmailPassword(email, password).then((emailu) => {
+      emailu.onNavigate('/feed');
+    }).catch((errorCode) => {
+      if (errorCode === 'auth/wrong-password') {
+        alert('Contraseña incorrecta');
+      }
+    });
+  });
 
   return homeDiv;
 };
