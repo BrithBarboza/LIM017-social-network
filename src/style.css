@@ -146,6 +146,10 @@ label {
 #inputEmail {
     color: black;
 }
+.planeImg{
+    position: absolute;
+    top:25% -47%;
+}
 
 .showMessageError {
     color: red;
@@ -155,6 +159,7 @@ label {
     text-align: center;
     padding: 5px;
     border: solid 1px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .signOut {

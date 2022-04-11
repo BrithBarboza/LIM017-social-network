@@ -15,7 +15,7 @@ export const registerWithEmail = (email, password) => {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
-      console.log(user);
+      console.log(user.email);
     // ...
     })
     .catch((error) => {
@@ -41,11 +41,11 @@ export const registerWithEmail = (email, password) => {
       }
     });
 
-  // sendEmailVerification(auth.currentUser)
-  //   .then(() => {
-  //   // Email verification sent!
-  //   // ...
-  //   });
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+    // Email verification sent!
+    // ...
+    });
 };
 
 const provider = new GoogleAuthProvider();

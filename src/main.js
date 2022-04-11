@@ -3,7 +3,7 @@ import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { Login } from './components/login.js';
 import { feed } from './components/feed.js';
-import { registerWithEmail } from './firebaseAuth.js';
+// import { registerWithEmail } from './firebaseAuth.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -40,17 +40,17 @@ rootDiv.appendChild(component());
 // btnLoginWithGoogle.addEventListener('click', () => {
 //   registerWithGoogle();
 // });
-const btnSendForm = document.getElementById('sendInfo');
+// const btnSendForm = document.getElementById('sendInfo');
 
-btnSendForm.addEventListener('click', (e) => {
-  e.preventDefault();
-  const email = document.getElementById('emailRegister').value;
-  const password = document.getElementById('password').value;
-  console.log(email);
+// btnSendForm.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   const email = document.getElementById('emailRegister').value;
+//   const password = document.getElementById('password').value;
+//   console.log(email);
 
-  console.log(password);
-  registerWithEmail(email, password);
-});
+//   console.log(password);
+//   registerWithEmail(email, password);
+// });
 /* Para mostrar contraseña */
 export function showPassword(eyeOpen, eyeClose, password) {
   const eyeOpens = document.getElementById(eyeOpen);
