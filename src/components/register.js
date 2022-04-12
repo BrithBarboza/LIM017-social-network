@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
+import { registerWithEmail } from '../firebaseAuth.js';
 
 export const register = () => {
   const homeDiv = document.createElement('div');
@@ -33,6 +34,18 @@ export const register = () => {
    </form>   
   `;
   homeDiv.innerHTML += templateRegister;
+
+  const btnSendForm = homeDiv.querySelector('#sendInfo');
+
+  btnSendForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = homeDiv.querySelector('#emailRegister').value;
+    const password = homeDiv.querySelector('#password').value;
+    console.log(email);
+
+    console.log(password);
+    registerWithEmail(email, password);
+  });
 
   // homeDiv.textContent = 'Bienvenido a Social Travel';
   const buttonHome = document.createElement('button');

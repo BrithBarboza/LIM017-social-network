@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
   // sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './Config.js';
@@ -15,7 +16,7 @@ export const registerWithEmail = (email, password) => {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
-      console.log(user);
+      console.log(user.email);
     // ...
     })
     .catch((error) => {
@@ -43,9 +44,9 @@ export const registerWithEmail = (email, password) => {
 
   // sendEmailVerification(auth.currentUser)
   //   .then(() => {
-  //   // Email verification sent!
-  //   // ...
-  //   });
+  //     Email verification sent!
+  //     ...
+  //     });
 };
 
 const provider = new GoogleAuthProvider();
@@ -74,5 +75,26 @@ export const registerWithGoogle = function () {
       const credential = GoogleAuthProvider.credentialFromError(error);
       // ...
       console.log(errorCode, errorMessage, credential, email);
+    });
+};
+// Para ingresar con correo  y contraseña
+
+export const LoginByEmailPassword = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    // Signed in
+      const user = userCredential.user;
+      const emailu = user.email;
+      return emailu;
+    // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      // if (errorCode === 'auth/wrong-password') {
+      //   alert('Contraseña incorrecta');
+      // }
+      return errorCode;
     });
 };
