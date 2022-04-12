@@ -8,7 +8,7 @@ export const feed = () => {
   <nav class="Menu" id="Menu">
     <div id = "introduction">
     <img src="./imgns/Vectorlogo.svg" class= "logo">
-    <a title="Mi perfil" href=""><img src="./imgns/blank-profile-picture.webp" width = "40px" height = "40px" alt="Mi Perfil" /></a>
+    <a title="Mi perfil" href=""><img src="./imgns/blank-profile-picture.webp" class = "profile" alt="Mi Perfil" /></a>
     </div>
     <div id = "regards">
      <span>Hola + '_______' </span>
@@ -17,15 +17,19 @@ export const feed = () => {
 
   <h2>Descubre un nuevo lugar para visitar</h2>
 
-  <input type = "text" class = "cta" placeholder = "¿Quiéres contarnos tu experiencia?">
+  <div id = "post">
   <div id = "photoProfile">
   <img src = "./imgns/blank-profile-picture.webp" width = "30px" height = "30px">
+  </div>
+  <input type = "text" class = "cta" placeholder = "¿Quiéres contarnos tu experiencia?">
   </div>
 
   <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
 
-  <div id = "categories">
+  <div class = "textAndSelect">
+  <span class = "textModal">Escribe tu reseña</span>
+  <div id = "categories" class ="filter">
   <select>
   <option>Lugares</option>
   <option>Hospedajes</option>
@@ -33,22 +37,27 @@ export const feed = () => {
   <option>Bares</option>
   </select>
   </div>
+  </div>
 
-  <input type = "text" class = "cta" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos...">
+  <input type = "text" class = "inputPost" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos...">
 
   <p class = "close">X</p>
 
   <div id = "TransportButtons">
-  <button></button>
-  <button></button>
-  <button></button>
-  <button></button>
-  <button></button>
-  <button></button>
+   <div>
+   <i class = "walk"></i></div>
+   <div></div>   
+   <div></div>
+   <div></div>
+   <div></div>
+   <div></div>
   </div>
 
-  <button>Fotos</button>
-  <button type = "button" id = "postButton" class = "postButton">Publicar</button>
+  <div class = "postButtons">
+  <button type = "button" id = "postPhotosButton" class = "modalButton">Fotos</button>
+  <button type = "button" id = "postButton" class = "modalButton">Publicar</button>
+  </div>
+
   </div>
   </div>
 
