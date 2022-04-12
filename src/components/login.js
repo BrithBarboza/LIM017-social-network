@@ -57,13 +57,10 @@ export const Login = () => {
     e.preventDefault();
     const email = homeDiv.querySelector('#inputEmail').value;
     const password = homeDiv.querySelector('#inputPass').value;
-    LoginByEmailPassword(email, password).then((emailu) => {
-      emailu.onNavigate('/feed');
-    }).catch((errorCode) => {
-      if (errorCode === 'auth/wrong-password') {
-        alert('Contraseña incorrecta');
-      }
-    });
+    LoginByEmailPassword(email, password);
+    // if (LoginByEmailPassword === true) {
+    //   onNavigate('/feed');
+    // }
   });
 
   return homeDiv;
