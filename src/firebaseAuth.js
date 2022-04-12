@@ -84,17 +84,15 @@ export const LoginByEmailPassword = (email, password) => {
     .then((userCredential) => {
     // Signed in
       const user = userCredential.user;
-      const emailu = user.email;
-      return emailu;
-    // ...
+      return user.email;
+      // ...
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage);
-      // if (errorCode === 'auth/wrong-password') {
-      //   alert('Contraseña incorrecta');
-      // }
-      return errorCode;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Contraseña incorrecta');
+      }
     });
 };

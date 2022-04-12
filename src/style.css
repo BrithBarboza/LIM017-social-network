@@ -31,6 +31,7 @@ img.logoSocialTravel {
 
 .inputPost {
     position: relative;
+
     border: 1px solid #65B2C6;
     border-radius: 5px;
     margin: 10px 3%;
@@ -277,6 +278,7 @@ select:focus{
 }
 .filter {
     margin: 5px 5px;
+
     border-radius: 5px;
     border:1px solid #D9D9D9;
     height:30px;
@@ -284,6 +286,7 @@ select:focus{
     width: 200px;
     position:relative;
  }
+
 .filter::after{
     content:"\025be";
     color: white;
@@ -296,6 +299,7 @@ select:focus{
     position: absolute;
     top: 0;
     right: 0px;
+
     pointer-events: none;
 }
 .modalButton{
@@ -340,6 +344,11 @@ select:focus{
 }
 #containerIconTransports span{
     padding: 10px; 
+
+position: relative;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
 }
 
 /* --------------MediaQuery-------------- */
@@ -415,6 +424,7 @@ select:focus{
     .modal{
         width: 70%;
         height: 70%;
+
         top: 5%;
         border-radius: 10px;
     }

@@ -46,13 +46,13 @@ export const feed = () => {
   <div id = "containerIconTransports">
   <span>Selecciona el/los transporte/s que usaste para llegar aquí</span>
   <div id = "TransportButtons">
+
    <i id = "walk"><img class = "transIcon" src = "./imgns/transportation_walk.svg"></i>
    <i id = "car"><img class = "transIcon" src = "./imgns/transportation_car.svg"></i>
    <i id = "boat"><img class = "transIcon" src = "./imgns/transportation_boat.svg"></i>
    <i id = "train"><img class = "transIcon" src = "./imgns/transportation_train.svg"></i>
    <i id = "bicycle"><img class = "transIcon" src = "./imgns/transportation_bicycle.svg"></i>
    <i id = "motorcycle"><img class = "transIcon" src = "./imgns/transportation_motorcycle.svg"></i>
-  </div>
   </div>
 
   <div class = "postButtons">
