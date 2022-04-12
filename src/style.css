@@ -11,8 +11,8 @@ body {
 
 .close{
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -29,19 +29,22 @@ img.logoSocialTravel {
     margin: 40px;
 }
 
-input {
-
+.inputPost {
+    position: relative;
     border: 1px solid #2b2b2b;
     border-radius: 5px;
-    margin: 10px 0 0;
+    margin: 10px 3%;
     padding: 8px;
-
+    width: 90%;
+    height: 30%;
+    text-align: initial;
+    box-shadow: 4px 4px 8px grey;
 }
 
-label {
+.textModal {
     padding-top: 20px;
     color: #2b2b2b;
-    font-weight: 1000;
+    padding: 10px;
 }
 
 .btnSingin {
@@ -63,7 +66,7 @@ label {
 }
 
 #feed h2 {
-    font-size: 30px;
+    font-size: 20px;
     line-height: 30px;
     color: #2B2B2B;
 }
@@ -79,21 +82,27 @@ label {
 }
 
 #introduction{
+    position: relative;
     display: flex;
     justify-content: space-between;
+    margin: 5px 20px;
 }
+
 .logo{
-    height: 40%;
-    display: flex;
-    align-content: flex-start;
+    position: relative;
+    height: 70%;
+    
 }
 
 .Menu{
+    display: flex;
+    flex-direction: column;
     background-color: #65B2C6;
     width: 100%;
-    height: 80px;
+    height: 100px;
     border-radius: 0 0 10px 10px;
     position: relative;
+    box-shadow: 4px 4px 8px grey;
 }
 
 .modal-container{
@@ -112,8 +121,8 @@ label {
 }
 
 .modal{
-    width: 70%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     background-color: #FFF;
     text-align: center;
     display: flex;
@@ -122,8 +131,6 @@ label {
     position: relative;
     transition: transform 0.8s;
     transform: translateY(0%);
-    border-radius: 10px;
-    /* overflow: hidden; */
 }
 
 .modal-close{
@@ -144,8 +151,15 @@ label {
 
 }
 
+.profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
 #regards{
-    position: absolute;
+    position: relative;
+    color: #FFFFFF;
+    font-weight: bolder;
 }
 
 .showbackground {
@@ -243,6 +257,71 @@ label {
     border-radius: 10px;
 }
 
+/*?------------------- Brith ------------------------*/
+select {
+    background: transparent;
+    border: none;
+    color:#595959;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+}
+select:focus{
+    outline: none;
+}
+.filter {
+    margin:5px 5px;
+    border-radius: 5px;
+    border:1px solid #D9D9D9;
+    height:30px;
+    overflow: hidden;
+    width: 200px;
+    position:relative;
+ }
+
+.filter::after{
+    content:"\025be";
+    color: white;
+    display:table-cell;
+    padding-top:7px;
+    text-align:center;
+    width:30px;
+    height:30px;
+    background-color: #65B2C6;
+    position:absolute;
+    top:0;
+    right:0px;
+    pointer-events: none;
+}
+.modalButton{
+    width: 25%;
+    padding: 5px;
+    font-size: 100%;
+    border-radius: 10px;
+    background-color: #65B2C6;
+    color: aliceblue;
+    font-weight: bolder;
+    box-shadow: 4px 4px 8px grey;
+    border: none;
+}
+.post{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.postButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.textAndSelect{
+position: relative;
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+}
+
 /* --------------MediaQuery-------------- */
 @media screen and (min-width:700px) {
     body {
@@ -313,7 +392,12 @@ label {
         margin-left: 13.5%;
     }
 
-
+    .modal{
+        width: 70%;
+        height: 50%;
+        top: 5%;
+        border-radius: 10px;
+    }
     .pInitial {
         height: 58px;
         right: 59.3%;
@@ -330,9 +414,12 @@ label {
         position: absolute;
         top:58%;
     }
-
     .showMessageError {
         padding: 5px;
         border: solid 1px;
+    }
+
+    #regards{
+        text-align: center;
     }
 }
