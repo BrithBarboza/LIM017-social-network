@@ -4,15 +4,20 @@ import { LoginByEmailPassword } from '../firebaseAuth.js';
 
 export const Login = () => {
   const homeDiv = document.createElement('div');
+  homeDiv.id = 'homeDiv';
 
-  const form = document.createElement('div');
-  form.className = 'form';
-  form.textContent = 'Aquí van los hijos';
+  const form = document.createElement('form');
+  form.className = 'formSignIn';
+  form.id = 'formSignIn';
 
   const Welcome = document.createElement('h1');
   Welcome.textContent = 'Bienvenido'; /* Revisar cómo hacer independiente este label */
   Welcome.id = 'Welcome';
   Welcome.className = 'Welcome';
+
+  const errorParagraph = document.createElement('p');
+  errorParagraph.id = 'error';
+  errorParagraph.className = 'alertDanger';
 
   const label1 = document.createElement('label');
   label1.textContent = 'Correo electrónico'; /* Revisar cómo hacer independiente este label */
@@ -34,10 +39,11 @@ export const Login = () => {
   inputPass.type = 'text';
   inputPass.id = 'inputPass';
 
-  const btnLogin = document.createElement('button');
+  const btnLogin = document.createElement('input');
   btnLogin.id = 'btnLogin';
   btnLogin.className = 'btnLogin';
-  btnLogin.textContent = 'Inicia Sesión';
+  btnLogin.value = 'Inicia Sesión';
+  btnLogin.setAttribute('type', 'submit');
 
   const buttonHome = document.createElement('button');
 
@@ -45,12 +51,13 @@ export const Login = () => {
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
-  homeDiv.insertAdjacentElement('beforeend', Welcome);
-  homeDiv.insertAdjacentElement('beforeend', label1);
-  homeDiv.insertAdjacentElement('beforeend', inputEmail);
-  homeDiv.insertAdjacentElement('beforeend', label2);
-  homeDiv.insertAdjacentElement('beforeend', inputPass);
-  homeDiv.insertAdjacentElement('beforeend', btnLogin);
+  form.insertAdjacentElement('beforeend', Welcome);
+  form.insertAdjacentElement('beforeend', label1);
+  form.insertAdjacentElement('beforeend', inputEmail);
+  form.insertAdjacentElement('beforeend', label2);
+  form.insertAdjacentElement('beforeend', inputPass);
+  form.insertAdjacentElement('beforeend', btnLogin);
+  homeDiv.insertAdjacentElement('beforeend', form);
   homeDiv.insertAdjacentElement('beforeend', buttonHome);
 
   btnLogin.addEventListener('click', (e) => {
@@ -58,26 +65,13 @@ export const Login = () => {
     const email = homeDiv.querySelector('#inputEmail').value;
     const password = homeDiv.querySelector('#inputPass').value;
     LoginByEmailPassword(email, password);
-    // if (LoginByEmailPassword === true) {
-    //   onNavigate('/feed');
-    // }
+
+    onNavigate('/feed');
+
+    // Para limpiar el formulario
+
+    homeDiv.querySelector('#formSignIn').reset();
   });
 
   return homeDiv;
 };
-
-/* export const LoginWithGoogle = () => {
-  const homeDiv = document.createElement('div');
-  homeDiv.textContent = 'AQUI VA el feed';
-
-  const buttonHome = document.createElement('button');
-
-  buttonHome.textContent = 'Cerrar sesión';
-  buttonHome.className = 'signOut';
-
-  buttonHome.addEventListener('click', () => onNavigate('/'));
-
-  homeDiv.appendChild(buttonHome);
-
-  return homeDiv;
-}; */

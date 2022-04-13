@@ -41,10 +41,14 @@ export const register = () => {
     e.preventDefault();
     const email = homeDiv.querySelector('#emailRegister').value;
     const password = homeDiv.querySelector('#password').value;
-    console.log(email);
+    // console.log(email);
 
-    console.log(password);
+    // console.log(password);
     registerWithEmail(email, password);
+
+    // Para limpiar el Form
+
+    // homeDiv.querySelector('#formulario').reset();
   });
 
   // homeDiv.textContent = 'Bienvenido a Social Travel';

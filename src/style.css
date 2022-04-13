@@ -9,7 +9,7 @@ body {
     background-image: url(./imgns/img_background2\ 1flechas.png);
 }
 
-.close{
+.close {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -23,6 +23,7 @@ body {
     border-radius: 50%;
 
 }
+
 img.logoSocialTravel {
     display: flex;
     flex-direction: column;
@@ -82,20 +83,20 @@ img.logoSocialTravel {
     gap: 20px;
 }
 
-#introduction{
+#introduction {
     position: relative;
     display: flex;
     justify-content: space-between;
     margin: 5px 20px;
 }
 
-.logo{
+.logo {
     position: relative;
     height: 70%;
-    
+
 }
 
-.Menu{
+.Menu {
     display: flex;
     flex-direction: column;
     background-color: #65B2C6;
@@ -106,7 +107,7 @@ img.logoSocialTravel {
     box-shadow: 4px 4px 8px grey;
 }
 
-.modal-container{
+.modal-container {
     opacity: 0;
     visibility: hidden;
     position: fixed;
@@ -121,7 +122,7 @@ img.logoSocialTravel {
     align-items: center;
 }
 
-.modal{
+.modal {
     width: 100%;
     height: 100%;
     background-color: #FFF;
@@ -134,7 +135,7 @@ img.logoSocialTravel {
     transform: translateY(0%);
 }
 
-.modal-close{
+.modal-close {
     transform: translateY(-200%);
 }
 
@@ -152,12 +153,13 @@ img.logoSocialTravel {
 
 }
 
-.profile{
+.profile {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
-#regards{
+
+#regards {
     position: relative;
     color: #FFFFFF;
     font-weight: bolder;
@@ -237,9 +239,10 @@ img.logoSocialTravel {
 #inputEmail {
     color: black;
 }
-.planeImg{
+
+.planeImg {
     position: absolute;
-    top:25% -47%;
+    top: 25% -47%;
 }
 
 .showMessageError {
@@ -250,7 +253,7 @@ img.logoSocialTravel {
     text-align: center;
     padding: 5px;
     border: solid 1px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .signOut {
@@ -267,28 +270,30 @@ img.logoSocialTravel {
 select {
     background: transparent;
     border: none;
-    color:#595959;
+    color: #595959;
     font-size: 14px;
     height: 30px;
     padding: 5px;
     width: 250px;
 }
-select:focus{
+
+select:focus {
     outline: none;
 }
+
 .filter {
     margin: 5px 5px;
 
     border-radius: 5px;
-    border:1px solid #D9D9D9;
-    height:30px;
+    border: 1px solid #D9D9D9;
+    height: 30px;
     overflow: hidden;
     width: 200px;
-    position:relative;
- }
+    position: relative;
+}
 
-.filter::after{
-    content:"\025be";
+.filter::after {
+    content: "\025be";
     color: white;
     display: table-cell;
     padding-top: 5px;
@@ -302,7 +307,8 @@ select:focus{
 
     pointer-events: none;
 }
-.modalButton{
+
+.modalButton {
     width: 25%;
     padding: 5px;
     font-size: 100%;
@@ -313,23 +319,27 @@ select:focus{
     box-shadow: 4px 4px 8px grey;
     border: none;
 }
-.post{
+
+.post {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.postButtons{
+
+.postButtons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.textAndSelect{
+
+.textAndSelect {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.transIcon{
+
+.transIcon {
     height: 40px;
     width: 40px;
     background-position: 0px -233px;
@@ -337,18 +347,20 @@ select:focus{
     background-repeat: no-repeat;
     display: inline-block;
 }
-#containerIconTransports{
+
+#containerIconTransports {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-#containerIconTransports span{
-    padding: 10px; 
 
-position: relative;
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
+#containerIconTransports span {
+    padding: 10px;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 /* --------------MediaQuery-------------- */
@@ -407,6 +419,7 @@ justify-content: space-evenly;
         font-size: 20px;
         margin-left: 13.5%;
     }
+
     #btnRegister {
         position: absolute;
         top: 70%;
@@ -421,13 +434,14 @@ justify-content: space-evenly;
         margin-left: 13.5%;
     }
 
-    .modal{
+    .modal {
         width: 70%;
         height: 70%;
 
         top: 5%;
         border-radius: 10px;
     }
+
     .pInitial {
         height: 58px;
         right: 59.3%;
@@ -440,16 +454,18 @@ justify-content: space-evenly;
         width: 440px;
         top: 35%;
     }
-    .planeImg{
+
+    .planeImg {
         position: absolute;
-        top:58%;
+        top: 58%;
     }
+
     .showMessageError {
         padding: 5px;
         border: solid 1px;
     }
 
-    #regards{
+    #regards {
         text-align: center;
     }
 }

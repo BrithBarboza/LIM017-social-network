@@ -1,4 +1,6 @@
-/* import { onNavigate } from '../main.js'; */
+/* eslint-disable import/no-cycle */
+import { onNavigate } from '../main.js';
+import { logOutSocialTravel } from '../firebaseAuth.js';
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -67,35 +69,51 @@ export const feed = () => {
 `;
   feedDiv.innerHTML += templateFeed;
 
-  let cerrar = feedDiv.querySelectorAll(".close")[0];
-  let abrir = feedDiv.querySelectorAll(".cta")[0];
-  let modal = feedDiv.querySelectorAll(".modal")[0];
-  let modalC = feedDiv.querySelectorAll(".modal-container")[0];
+  const cerrar = feedDiv.querySelectorAll('.close')[0];
+  const abrir = feedDiv.querySelectorAll('.cta')[0];
+  const modal = feedDiv.querySelectorAll('.modal')[0];
+  const modalC = feedDiv.querySelectorAll('.modal-container')[0];
 
-  abrir.addEventListener("click", function (e) {
+  abrir.addEventListener('click', (e) => {
     e.preventDefault();
-    modalC.style.opacity = "1";
-    modalC.style.visibility = "visible";
-    modal.classList.toggle("modal-close");
-  })
+    modalC.style.opacity = '1';
+    modalC.style.visibility = 'visible';
+    modal.classList.toggle('modal-close');
+  });
 
-  cerrar.addEventListener("click", function () {
-    modal.classList.toggle("modal-close");
-    setTimeout(function () {
-      modalC.style.opacity = "0";
-      modalC.style.visibility = "hidden";
-    }, 800)
-  })
+  cerrar.addEventListener('click', () => {
+    modal.classList.toggle('modal-close');
+    setTimeout(() => {
+      modalC.style.opacity = '0';
+      modalC.style.visibility = 'hidden';
+    }, 800);
+  });
 
-  window.addEventListener("click", function (e) {
-    console.log(e.target)
-    if (e.target == modalC) {
-      modal.classList.toggle("modal-close");
-      setTimeout(function () {
-        modalC.style.opacity = "0";
-        modalC.style.visibility = "hidden";
-      }, 800)
+  window.addEventListener('click', (e) => {
+    // console.log(e.target);
+    if (e.target === modalC) {
+      modal.classList.toggle('modal-close');
+      setTimeout(() => {
+        modalC.style.opacity = '0';
+        modalC.style.visibility = 'hidden';
+      }, 800);
     }
-  })
+  });
+
+  const btnLogOut = document.createElement('a');
+  btnLogOut.setAttribute('href', '');
+  btnLogOut.id = 'logOut';
+  btnLogOut.className = 'btnLogOut';
+  btnLogOut.textContent = 'Cerrar Sesión';
+
+  feedDiv.insertAdjacentElement('beforeend', btnLogOut);
+
+  const logOut = feedDiv.querySelector('#logOut');
+  logOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    logOutSocialTravel();
+    onNavigate('/');
+  });
+
   return feedDiv;
 };
