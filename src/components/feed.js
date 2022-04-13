@@ -56,6 +56,7 @@ export const feed = () => {
    <i id = "bicycle"><img class = "transIcon" src = "./imgns/transportation_bicycle.svg"></i>
    <i id = "motorcycle"><img class = "transIcon" src = "./imgns/transportation_motorcycle.svg"></i>
   </div>
+  </div>
 
   <div class = "postButtons">
   <button type = "button" id = "postPhotosButton" class = "modalButton">Fotos</button>
