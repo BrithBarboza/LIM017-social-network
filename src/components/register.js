@@ -44,15 +44,8 @@ export const register = () => {
     // console.log(email);
 
     // console.log(password);
-    registerWithEmail(email, password).then(() => {
-      sendEmailVerification1()
-        .then(() => {
-          alert('verifica tu correo!');
-        });
-    }).catch((error) => {
-      // alert('error en registro');
-      console.log(error);
-    });
+    registerWithEmail(email, password);
+    sendEmailVerification1(email);
 
     // Para limpiar el Form
 
