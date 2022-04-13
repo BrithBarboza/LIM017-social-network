@@ -340,7 +340,7 @@ select:focus{
 #containerIconTransports{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-even
 }
 #containerIconTransports span{
     padding: 10px; 
@@ -349,6 +349,15 @@ position: relative;
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
+}
+
+.postConfirm{
+          width: 70%;
+        height: 70%;
+
+        top: 5%;
+        border-radius: 10px;
+    
 }
 
 /* --------------MediaQuery-------------- */

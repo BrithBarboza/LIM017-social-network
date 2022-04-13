@@ -17,7 +17,7 @@ export const registerWithEmail = (email, password) => {
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      console.log(user.email);
+      console.log(user);
       // ...
     })
     .catch((error) => {
@@ -47,7 +47,16 @@ export const registerWithEmail = (email, password) => {
     });
 };
 
-export const sendEmailVerification1 = () => sendEmailVerification(auth.currentUser);
+export const sendEmailVerification1 = () => {
+  sendEmailVerification(auth.currentUser)
+    .then((email) => {
+      console.log(email);
+    // Email verification sent!
+    // ...
+    }).catch((error) => {
+      console.log(error);
+    });
+};
 
 const provider = new GoogleAuthProvider();
 
