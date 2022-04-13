@@ -16,8 +16,7 @@ export const Login = () => {
   Welcome.className = 'Welcome';
 
   const errorParagraph = document.createElement('p');
-  errorParagraph.id = 'error';
-  errorParagraph.className = 'alertDanger';
+  errorParagraph.id = 'error2';
 
   const label1 = document.createElement('label');
   label1.textContent = 'Correo electrónico'; /* Revisar cómo hacer independiente este label */
@@ -52,6 +51,7 @@ export const Login = () => {
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
   form.insertAdjacentElement('beforeend', Welcome);
+  form.insertAdjacentElement('beforeend', errorParagraph);
   form.insertAdjacentElement('beforeend', label1);
   form.insertAdjacentElement('beforeend', inputEmail);
   form.insertAdjacentElement('beforeend', label2);
@@ -66,7 +66,7 @@ export const Login = () => {
     const password = homeDiv.querySelector('#inputPass').value;
     LoginByEmailPassword(email, password);
 
-    onNavigate('/feed');
+    // onNavigate('/feed');
 
     // Para limpiar el formulario
 

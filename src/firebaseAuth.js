@@ -6,7 +6,7 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signOut,
-  // sendEmailVerification,
+  sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './Config.js';
 
@@ -45,13 +45,9 @@ export const registerWithEmail = (email, password) => {
         callAlertParagraph.textContent = 'Debes ingresar tu correo electrónico.';
       }
     });
-
-  // sendEmailVerification(auth.currentUser)
-  //   .then(() => {
-  //     Email verification sent!
-  //     ...
-  //     });
 };
+
+export const sendEmailVerification1 = () => sendEmailVerification(auth.currentUser);
 
 const provider = new GoogleAuthProvider();
 
@@ -95,10 +91,15 @@ export const LoginByEmailPassword = (email, password) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage);
-      // const callAlertParagraph = document.querySelector('#error');
+      const callAlertParagraph = document.querySelector('#error2');
 
       if (errorCode === 'auth/wrong-password') {
-        // callAlertParagraph.textContent = 'Contraseña incorrecta';
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = 'Contraseña incorrecta';
+      }
+      if (errorCode === 'auth/user-not-found') {
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = 'Correo inválido';
       }
     });
   // Para saber si está ingresando
