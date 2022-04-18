@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
 body {
     background-image: url(./imgns/img_background2\ 1flechas.png);
 }
@@ -26,7 +25,6 @@ body {
     line-height: 25px;
     cursor: pointer;
     border-radius: 50%;
-
 }
 .contenedorTextos{
     background: #fff;
@@ -40,7 +38,6 @@ img.logoSocialTravel {
 
 .inputPost {
     position: relative;
-    top: -100%;
     border: 1px solid #65B2C6;
     border-radius: 5px;
     margin: 10px 3%;
@@ -56,7 +53,6 @@ img.logoSocialTravel {
     color: #2b2b2b;
     padding: 10px;
 }
-
 .btnSingin {
     width: 340px;
     height: 48px;
@@ -65,32 +61,26 @@ img.logoSocialTravel {
     border-radius: 10px;
     border: none;
 }
-
 .containerBody {
-
     background: rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 100%;
     position: absolute;
     left: 0px;
 }
-
 #feed h2 {
     font-size: 20px;
     line-height: 30px;
     color: #2B2B2B;
 }
-
 .hide {
     display: none;
 }
-
 .homeDiv {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     gap: 20px;
 }
-
 #introduction{
     position: relative;
     display: flex;
@@ -120,7 +110,6 @@ img.logoSocialTravel {
     height: 70%;
     
 }
-
 .Menu{
     display: flex;
     flex-direction: column;
@@ -131,7 +120,6 @@ img.logoSocialTravel {
     position: relative;
     box-shadow: 4px 4px 8px grey;
 }
-
 .modal-container{
     opacity: 0;
     visibility: hidden;
@@ -146,7 +134,6 @@ img.logoSocialTravel {
     justify-content: center;
     align-items: center;
 }
-
 .modal{
     width: 100%;
     height: 100%;
@@ -159,11 +146,9 @@ img.logoSocialTravel {
     transition: transform 0.8s;
     transform: translateY(0%);
 }
-
 .modal-close{
     transform: translateY(-200%);
 }
-
 .pInitial {
     position: absolute;
     height: 87px;
@@ -175,9 +160,7 @@ img.logoSocialTravel {
     font-size: 25px;
     line-height: 29px;
     color: #FFFFFF;
-
 }
-
 .profile{
     width: 50px;
     height: 50px;
@@ -188,7 +171,6 @@ img.logoSocialTravel {
     color: #FFFFFF;
     font-weight: bolder;
 }
-
 .showbackground {
     background-color: #FFFFFF;
     position: absolute;
@@ -200,7 +182,6 @@ img.logoSocialTravel {
     display: grid;
     gap: 20px;
 }
-
 .sendInfo {
     padding: 3%;
     background: #65B2C6;
@@ -210,7 +191,6 @@ img.logoSocialTravel {
     font-size: 20px;
     border-radius: 10px;
 }
-
 #btnLogin {
     display: flex;
     flex-direction: row;
@@ -221,7 +201,6 @@ img.logoSocialTravel {
     background: #65B2C6;
     font-size: 20px;
 }
-
 #btnLoginWithGoogle {
     display: flex;
     flex-direction: row;
@@ -251,19 +230,15 @@ img.logoSocialTravel {
     color: white;
     text-decoration-line: underline;
 }
-
 #buttonHome {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     text-decoration-line: underline;
 }
-
 #formulario {
     display: grid;
     gap: 15px;
-
 }
-
 #inputEmail {
     color: black;
 }
@@ -277,7 +252,6 @@ border-radius: 50%;
     position: absolute;
     top:25% -47%;
 }
-
 .showMessageError {
     color: red;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -288,7 +262,6 @@ border-radius: 50%;
     border: solid 1px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-
 .signOut {
     display: flex;
     margin: 12.5%;
@@ -323,7 +296,6 @@ select:focus{
 }
 .filter {
     margin: 5px 5px;
-
     border-radius: 5px;
     border:1px solid #D9D9D9;
     height:30px;
@@ -331,8 +303,7 @@ select:focus{
     width: 200px;
     position:relative;
  }
-
-.filter::after{
+ .filter::after{
     content:"\025be";
     color: white;
     display: table-cell;
@@ -344,7 +315,6 @@ select:focus{
     position: absolute;
     top: 0;
     right: 0px;
-
     pointer-events: none;
 }
 .modalButton{
@@ -432,19 +402,16 @@ justify-content: space-evenly;
         background-image: url(./imgns/fondoflechas.png);
         background-size: cover;
     }
-
     .containerBody {
         background: rgba(0, 0, 0, 0.4);
         position: absolute;
         left: 0px;
     }
-
     .homeDiv {
         display: grid;
         grid-template-rows: repeat(3, 1fr);
         gap: 20px;
     }
-
     img.logoSocialTravel {
         position: absolute;
         width: 170px;
@@ -452,10 +419,7 @@ justify-content: space-evenly;
         left: 217px;
         top: 15%;
         display: flex;
-
-
     }
-
     #btnLoginWithGoogle {
         display: flex;
         flex-direction: row;
@@ -468,9 +432,7 @@ justify-content: space-evenly;
         color: white;
         font-size: 20px;
         margin-left: 13.5%;
-
     }
-
     #btnLogin {
         display: flex;
         flex-direction: row;
@@ -499,7 +461,6 @@ justify-content: space-evenly;
     .modal{
         width: 70%;
         height: 70%;
-
         top: 5%;
         border-radius: 10px;
     }
@@ -523,7 +484,6 @@ justify-content: space-evenly;
         padding: 5px;
         border: solid 1px;
     }
-
     #regards{
         text-align: center;
     }
