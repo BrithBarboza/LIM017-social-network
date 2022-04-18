@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOutSocialTravel } from '../firebaseAuth.js';
+import { logOutSocialTravel, addPost } from '../firebaseAuth.js';
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -40,7 +40,7 @@ export const feed = () => {
   </select>
   </div>
   </div>
-  <form id ="post" class ="postFedd">
+  <form id ="postIt" class ="postFedd">
   <input type = "text" class = "inputPost" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos...">
 
   <p class = "close">X</p>
@@ -64,8 +64,10 @@ export const feed = () => {
   </form>
   <div id = "postConfirm" class= "hide"> 
   <p> ¿Estás seguro de publicar tu reseña? </p>
-  <button id="postInFeed"> Sí </button>
-  <button id="descartPost"> No </button>
+  <div id= "btnYoN">
+  <button id="postInFeed" class = "yoNButton"> Sí </button>
+  <button id="descartPost" class = "yoNButton"> No </button>
+  </div>
   </div>
   </div>
   </div>
@@ -109,6 +111,7 @@ export const feed = () => {
   sendPost.addEventListener('click', (e) => {
     e.preventDefault();
     const post = feedDiv.querySelector('.inputPost').value;
+
     if (post !== '') {
       const postConfirm = feedDiv.querySelector('#postConfirm');
       postConfirm.classList.remove('hide');
@@ -117,19 +120,24 @@ export const feed = () => {
       const descartPost = feedDiv.querySelector('#descartPost');
       const postInFeed = feedDiv.querySelector('#postInFeed');
 
-      descartPost.addEventListener('click', (e) => {
+      descartPost.addEventListener('click', () => {
         e.preventDefault();
         modal.classList.toggle('modal-close');
         setTimeout(() => {
           modalC.style.opacity = '0';
           modalC.style.visibility = 'hidden';
+          postConfirm.classList.add('hide');
+          postConfirm.classList.remove('postConfirm');
         }, 800);
       });
-      postInFeed.addEventListener('click', (e) => {
+      postInFeed.addEventListener('click', () => {
         e.preventDefault();
         alert(post);
+        addPost(post);
       });
     }
+    const postIt = feedDiv.querySelector('#postIt');
+    postIt.reset();
   });
 
   const btnLogOut = document.createElement('a');
