@@ -31,13 +31,13 @@ img.logoSocialTravel {
 
 .inputPost {
     position: relative;
-
+    top: -100%;
     border: 1px solid #65B2C6;
     border-radius: 5px;
     margin: 10px 3%;
     padding: 8px;
     width: 94%;
-    height: 50%;
+    height: 100%;
     font-size: x-large;
     text-align: initial;
     box-shadow: 4px 4px 8px grey;
@@ -328,6 +328,7 @@ select:focus{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    top: -10%;
 }
 .transIcon{
     height: 40px;
@@ -340,7 +341,10 @@ select:focus{
 #containerIconTransports{
     display: flex;
     flex-direction: row;
-    justify-content: space-even
+    justify-content: space-evenly;
+    position: relative;
+    top: -50%;
+    font-size: 20px;
 }
 #containerIconTransports span{
     padding: 10px; 
@@ -352,12 +356,29 @@ justify-content: space-evenly;
 }
 
 .postConfirm{
-          width: 70%;
-        height: 70%;
+    display: flex;
+    width: 70%;
+    position: relative;
+    height: 30%;
 
-        top: 5%;
-        border-radius: 10px;
-    
+    border-radius: 10px;
+    background: #FFBA76;
+    left: 116px;
+    font-size: 30px;
+    padding: 3%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.yoNButton{
+    width: 25%;
+    padding: 5px;
+    font-size: 100%;
+    border-radius: 10px;
+    background-color: #2b2b2b;
+    color: aliceblue;
+    font-weight: bolder;
+    box-shadow: 4px 4px 8px grey;
+    border: none;
 }
 
 /* --------------MediaQuery-------------- */
