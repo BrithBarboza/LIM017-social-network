@@ -28,10 +28,7 @@ img.logoSocialTravel {
 
 .inputPost {
     position: relative;
-<<<<<<< HEAD
-=======
     top: -100%;
->>>>>>> upstream/main
     border: 1px solid #65B2C6;
     border-radius: 5px;
     margin: 10px 3%;
@@ -298,7 +295,7 @@ select:focus{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    top: -10%;
+    top: -15%;
 }
 .transIcon{
     height: 40px;
@@ -328,9 +325,8 @@ justify-content: space-evenly;
 .postConfirm{
     display: flex;
     width: 70%;
-    position: relative;
+    position: fixed;
     height: 30%;
-
     border-radius: 10px;
     background: #FFBA76;
     left: 116px;
