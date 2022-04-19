@@ -17,11 +17,13 @@ export const feed = () => {
     </div>
   </nav>
 
+  <div id = "main">
   <h2 class="containerH2"><center>Descubre un nuevo lugar para visitar</center></h2>
 
   <div id = "btnPostAndPhoto">
   <img src = "./imgns/blank-profile-picture.webp" id = "photoProfile" width = "40px" height = "40px">
   <button class = "cta" > ¿Quiéres contarnos tu experiencia? </button>
+  </div>
   </div>
 
   <div class ="modal-container">
@@ -69,6 +71,33 @@ export const feed = () => {
   </div>
   </div>
   </div>
+
+  <footer id="footer">
+    <span class="content_1"><a>© SOCIAL TRAVEL - Desarrollado por Briggtte B. y Linda G.</a>
+      <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
+        <a>01-123456</a>
+      </div>
+      <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
+        <a>02-123456</a>
+      </div>
+
+      <div class="Box">
+        <h2>SIGUENOS</h2>
+        <ul class="red-social">
+          <li><a href="" class="fa fa-facebook"></a></li>
+          <li><a href="" class="fa fa-instagram"></a></li>
+          <li><a href="" class="fa fa-twitter"></a></li>
+          <li><a href="" class="fa fa-youtube"></a></li>
+        </ul>
+      </div>
+    </span>
+    
+      <div class="content_3">
+      <img src="./imgns/Vectorlogo.svg">
+      <small>©2022 - Todos los derechos Reservados.</small>
+      </div>
+    </span>
+  </footer>
 
   </section>
 `;

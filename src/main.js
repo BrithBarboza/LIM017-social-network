@@ -3,6 +3,7 @@ import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { Login } from './components/login.js';
 import { feed } from './components/feed.js';
+import { profile } from './components/profile.js';
 // import { registerWithEmail } from './firebaseAuth.js';
 
 const rootDiv = document.getElementById('root');
@@ -12,6 +13,7 @@ const routes = {
   '/register': register,
   '/login': Login,
   '/feed': feed,
+  '/profile': profile,
   /* '/loginWithGoogle': LoginWithGoogle, */
 
 };

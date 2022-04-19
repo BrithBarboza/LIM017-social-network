@@ -2,6 +2,7 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
 import { registerWithEmail, sendEmailVerification1 } from '../firebaseAuth.js';
+import { Login } from './login.js';
 
 export const register = () => {
   const homeDiv = document.createElement('div');
