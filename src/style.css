@@ -7,6 +7,12 @@
 body {
     background-image: url(./imgns/img_background2\ 1flechas.png);
 }
+.btnLogOut{
+    background-color: #fff;
+    width: 100%;
+    padding: 20px;
+}
+
 .close{
     position: absolute;
     top: 10px;
@@ -20,6 +26,10 @@ body {
     cursor: pointer;
     border-radius: 50%;
 }
+.contenedorTextos{
+    background: #fff;
+    height: 777px;
+}
 img.logoSocialTravel {
     display: flex;
     flex-direction: column;
@@ -28,7 +38,6 @@ img.logoSocialTravel {
 
 .inputPost {
     position: relative;
-    top: -100%;
     border: 1px solid #65B2C6;
     border-radius: 5px;
     margin: 10px 3%;
@@ -59,11 +68,7 @@ img.logoSocialTravel {
     position: absolute;
     left: 0px;
 }
-#feed h2 {
-    font-size: 20px;
-    line-height: 30px;
-    color: #2B2B2B;
-}
+
 .hide {
     display: none;
 }
@@ -78,12 +83,38 @@ img.logoSocialTravel {
     justify-content: space-between;
     margin: 5px 20px;
 }
+.containerH2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#feed h2 {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    color: #2B2B2B;
+    margin: 3% 7.5%;
+}
+
 .logo{
     position: relative;
     height: 70%;
     
 }
+#main{
+    grid-area: main;
+    height: 500px;
+}
+#feed{
+    grid-template-areas: "navigate"
+                            "main"
+                            "footer";
+}
 .Menu{
+    grid-area: navigate;
+
     display: flex;
     flex-direction: column;
     background-color: #65B2C6;
@@ -186,6 +217,12 @@ img.logoSocialTravel {
     color: white;
     font-size: 20px;
 }
+#btnPostAndPhoto{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 #btnRegister {
     position: absolute;
     top: 738px;
@@ -210,6 +247,11 @@ img.logoSocialTravel {
 #inputEmail {
     color: black;
 }
+#photoProfile{  
+position: relative;
+margin: 1%;
+border-radius: 50%;
+}
 .planeImg{
     position: absolute;
     top:25% -47%;
@@ -232,6 +274,16 @@ img.logoSocialTravel {
     top: 569.93px;
     background: #65B2C6;
     border-radius: 10px;
+}
+.cta{
+    background-color: #fff;
+    border: solid 3px #D73D6C;
+    color: #616161;
+    font-size: 15px;
+    border-radius: 5px;
+    width: 346px;
+    height: 52px;
+
 }
 /*?------------------- Brith ------------------------*/
 select {
@@ -347,6 +399,91 @@ justify-content: space-evenly;
     border: none;
 }
 
+footer{
+    grid-area: footer;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #65B2C6;
+    height: 200px;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+footer h2{
+    color: white;
+}
+footer .content_1{
+    margin: 15px;
+    width: 47%;
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+footer .content_2{
+    margin: 15px;
+    width: 47%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: space-evenly;
+    font-size: 30px;
+    height: 85%;
+}
+.contacto{
+    display: flex;
+    height: 10px;
+}
+.content_1 .contacto .fas {
+    color:#fff;
+    margin-right: 10px;
+    height: 30px;
+}
+.content_1 .contacto a{
+    font-size: 15px;
+}
+footer .content_3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.Box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    height: 80px;
+}
+.Box h2{
+    font-size: 15px;
+    height: 200%;
+    margin: 4% auto;
+}
+.red-social{
+    list-style: none;
+    display:flex;
+}
+footer .content_1 .Box .red-social li {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    margin-right: 10px;
+    background-color:#65B2C6;
+    text-align: center;
+}
+footer .content_1 .Box .red-social li a{
+    color: #fff;
+}
+footer .content_1 .Box .red-social li a:hover{
+    color:#D73D6C;
+}
+
 /* --------------MediaQuery-------------- */
 @media screen and (min-width:700px) {
     body {
@@ -437,5 +574,29 @@ justify-content: space-evenly;
     }
     #regards{
         text-align: center;
+    }
+/*? -------- Brith --------*/
+    footer{
+        bottom: 0;
+        display: flex;
+        height: 200px;
+        color: white;
+    }
+        footer .content_1{
+        margin: 15px;
+        width: 47%;
+        display: flex;
+        font-size: 15px;
+        align-items: center;
+        flex-direction: column;
+    }
+        .content_1 a{
+            height: 25%;
+            text-align: center;
+    }
+    .contacto > a{
+        margin-right: 10px;
+        font-size: 20px;
+        height: 25px;
     }
 }

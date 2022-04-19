@@ -8,7 +8,9 @@ import {
   signOut,
   sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+import {
+  getFirestore, collection, addDoc, getDocs,
+} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { app } from './Config.js';
 
 const auth = getAuth(app);
@@ -131,3 +133,4 @@ export const logOutSocialTravel = () => {
 const db = getFirestore(app);
 
 export const addPost = (post) => addDoc(collection(db, 'Posts'), { post });
+export const getPost = () => getDocs(collection(db, 'Posts'));

@@ -1,11 +1,11 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOutSocialTravel, addPost } from '../firebaseAuth.js';
+import { logOutSocialTravel, addPost, getPost } from '../firebaseAuth.js';
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
   const templateFeed = `
-  <section id= "feed" class = "contenedor-textos">
+  <section id= "feed" class = "contenedorTextos">
 
   <nav class="Menu" id="Menu">
     <div id = "introduction">
@@ -17,13 +17,13 @@ export const feed = () => {
     </div>
   </nav>
 
-  <h2>Descubre un nuevo lugar para visitar</h2>
+  <div id = "main">
+  <h2 class="containerH2"><center>Descubre un nuevo lugar para visitar</center></h2>
 
-  <div id = "post">
-  <div id = "photoProfile">
-  <img src = "./imgns/blank-profile-picture.webp" width = "30px" height = "30px">
+  <div id = "btnPostAndPhoto">
+  <img src = "./imgns/blank-profile-picture.webp" id = "photoProfile" width = "40px" height = "40px">
+  <button class = "cta" > ¿Quiéres contarnos tu experiencia? </button>
   </div>
-  <input type = "text" class = "cta" placeholder = "¿Quiéres contarnos tu experiencia?">
   </div>
 
   <div class ="modal-container">
@@ -32,7 +32,7 @@ export const feed = () => {
   <div class = "textAndSelect">
   <span class = "textModal">Escribe tu reseña</span>
   <div id = "categories" class ="filter">
-  <select>
+  <select id= "categories">
   <option>Lugares</option>
   <option>Hospedajes</option>
   <option>Restaurantes</option>
@@ -72,6 +72,33 @@ export const feed = () => {
   </div>
   </div>
 
+  <footer id="footer">
+    <span class="content_1"><a>© SOCIAL TRAVEL - Desarrollado por Briggtte B. y Linda G.</a>
+      <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
+        <a>01-123456</a>
+      </div>
+      <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
+        <a>02-123456</a>
+      </div>
+
+      <div class="Box">
+        <h2>SIGUENOS</h2>
+        <ul class="red-social">
+          <li><a href="" class="fa fa-facebook"></a></li>
+          <li><a href="" class="fa fa-instagram"></a></li>
+          <li><a href="" class="fa fa-twitter"></a></li>
+          <li><a href="" class="fa fa-youtube"></a></li>
+        </ul>
+      </div>
+    </span>
+    
+      <div class="content_3">
+      <img src="./imgns/Vectorlogo.svg">
+      <small>©2022 - Todos los derechos Reservados.</small>
+      </div>
+    </span>
+  </footer>
+
   </section>
 `;
   feedDiv.innerHTML += templateFeed;
@@ -105,6 +132,15 @@ export const feed = () => {
         modalC.style.visibility = 'hidden';
       }, 800);
     }
+  });
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    const querySnapShot = await getPost();
+    // console.log(querySnapShot);
+
+    querySnapShot.forEach(doc => {
+      console.log(doc.data());
+    });
   });
 
   const sendPost = feedDiv.querySelector('#postButton');
