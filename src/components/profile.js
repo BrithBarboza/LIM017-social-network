@@ -1,7 +1,6 @@
 /* eslint-disable import/no-cycle */
 // import { onNavigate } from '../main.js';
-import { onGetPostInRealTime, // logOutSocialTravel
-} from '../firebaseAuth.js';
+import { onGetPostInRealTime } from '../firebaseAuth.js';
 
 export const profile = () => {
   const profileDiv = document.createElement('div');
@@ -32,19 +31,6 @@ export const profile = () => {
       postCreatedByUser.innerHTML = html;
     });
   });
-
-  // const btnLogOut = document.createElement('a');
-  // btnLogOut.setAttribute('href', '');
-  // btnLogOut.id = 'logOut';
-  // btnLogOut.className = 'btnLogOut';
-  // btnLogOut.textContent = 'Cerrar Sesión';
-
-  // const logOut = profileDiv.querySelector('#logOut');
-  // logOut.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   logOutSocialTravel();
-  //   onNavigate('/');
-  // });
 
   profileDiv.insertAdjacentElement('beforeend', postCreatedByUser);
 

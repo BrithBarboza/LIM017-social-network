@@ -15,51 +15,9 @@ import { app } from './Config.js';
 
 const auth = getAuth(app);
 
-export const registerWithEmail = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log(user);
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      console.log(errorCode);
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      const callAlertParagraph = document.querySelector('#error');
+export const registerWithEmail = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
-      if (errorCode === 'auth/email-already-in-use') {
-        callAlertParagraph.classList.add('showMessageError');
-        callAlertParagraph.innerText = 'Otro usuario ya está utilizando el correo electrónico proporcionado.';
-      } else if (errorCode === 'auth/weak-password'
-      ) {
-        callAlertParagraph.classList.add('showMessageError');
-        callAlertParagraph.innerText = 'La constraseña no es válida. Debe contener al menos seis caracteres.';
-      } else if (errorCode === 'auth/invalid-email') {
-        callAlertParagraph.classList.add('showMessageError');
-        callAlertParagraph.innerText = 'La direccióm de correo electrónico ingresada no es válida.';
-      } else if (errorCode === true) {
-        callAlertParagraph.classList.add('showMessageError');
-        callAlertParagraph.innerText = errorMessage;
-      } else if (errorCode === 'auth/missing-email') {
-        callAlertParagraph.classList.add('showMessageError');
-        callAlertParagraph.textContent = 'Debes ingresar tu correo electrónico.';
-      }
-    });
-};
-
-export const sendEmailVerification1 = () => {
-  sendEmailVerification(auth.currentUser)
-    .then((email) => {
-      console.log(email);
-    // Email verification sent!
-    // ...
-    }).catch((error) => {
-      console.log(error);
-    });
-};
+export const sendEmailVerification1 = () => sendEmailVerification(auth.currentUser);
 
 const provider = new GoogleAuthProvider();
 
@@ -91,32 +49,9 @@ export const registerWithGoogle = function () {
 };
 // Para ingresar con correo  y contraseña
 
-export const LoginByEmailPassword = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      return user.email;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      const callAlertParagraph = document.querySelector('#error2');
-
-      if (errorCode === 'auth/wrong-password') {
-        callAlertParagraph.classList.add('showMessageError');
-        callAlertParagraph.innerText = 'Contraseña incorrecta';
-      }
-      if (errorCode === 'auth/user-not-found') {
-        callAlertParagraph.classList.add('showMessageError');
-        callAlertParagraph.innerText = 'Correo inválido';
-      }
-    });
-  // Para saber si está ingresando
-  // console.log('ingresaste!');
-};
+export const LoginByEmailPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);
+// Para saber si está ingresando
+// console.log('ingresaste!');
 
 export const logOutSocialTravel = () => {
   signOut(auth).then(() => {

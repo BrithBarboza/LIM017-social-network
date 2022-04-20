@@ -35,7 +35,7 @@ export const Login = () => {
 
   const inputPass = document.createElement('input');
   inputPass.placeholder = 'Ingresa tu contraseña';
-  inputPass.type = 'text';
+  inputPass.type = 'password';
   inputPass.id = 'inputPass';
 
   const btnLogin = document.createElement('input');
@@ -64,7 +64,30 @@ export const Login = () => {
     e.preventDefault();
     const email = homeDiv.querySelector('#inputEmail').value;
     const password = homeDiv.querySelector('#inputPass').value;
-    LoginByEmailPassword(email.value, password.value);
+    console.log(email, password);
+    LoginByEmailPassword(email, password).then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      onNavigate('/feed');
+
+      return user.email;
+
+      // ...
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      const callAlertParagraph = document.querySelector('#error2');
+
+      if (errorCode === 'auth/wrong-password') {
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = 'Contraseña incorrecta';
+      }
+      if (errorCode === 'auth/user-not-found') {
+        callAlertParagraph.classList.add('showMessageError');
+        callAlertParagraph.innerText = 'Correo inválido';
+      }
+    });
 
     // onNavigate('/feed');
 

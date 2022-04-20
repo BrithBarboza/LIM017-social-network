@@ -409,6 +409,9 @@ footer{
     height: 200px;
     color: white;
     border-radius: 10px 10px 0 0;
+    position: fixed;
+    margin-bottom: 0;
+    width: 100%;
 }
 footer h2{
     color: white;

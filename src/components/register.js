@@ -44,12 +44,48 @@ export const register = () => {
     // console.log(email);
 
     // console.log(password);
-    registerWithEmail(email, password);
-    sendEmailVerification1(email.value);
+    registerWithEmail(email, password).then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log(user);
+      // ...
+      sendEmailVerification1(email).then((value) => {
+        console.log(value);
+      // Email verification sent!
+      // ...
+      }).catch((error) => {
+        console.log(error);
+      });
+    })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+        const errorMessage = error.message;
+        console.log(errorMessage);
+        const callAlertParagraph = document.querySelector('#error');
+
+        if (errorCode === 'auth/email-already-in-use') {
+          callAlertParagraph.classList.add('showMessageError');
+          callAlertParagraph.innerText = 'Otro usuario ya está utilizando el correo electrónico proporcionado.';
+        } else if (errorCode === 'auth/weak-password'
+        ) {
+          callAlertParagraph.classList.add('showMessageError');
+          callAlertParagraph.innerText = 'La constraseña no es válida. Debe contener al menos seis caracteres.';
+        } else if (errorCode === 'auth/invalid-email') {
+          callAlertParagraph.classList.add('showMessageError');
+          callAlertParagraph.innerText = 'La direccióm de correo electrónico ingresada no es válida.';
+        } else if (errorCode === true) {
+          callAlertParagraph.classList.add('showMessageError');
+          callAlertParagraph.innerText = errorMessage;
+        } else if (errorCode === 'auth/missing-email') {
+          callAlertParagraph.classList.add('showMessageError');
+          callAlertParagraph.textContent = 'Debes ingresar tu correo electrónico.';
+        }
+      });
 
     // Para limpiar el Form
 
-    // homeDiv.querySelector('#formulario').reset();
+    homeDiv.querySelector('#formulario').reset();
   });
 
   // homeDiv.textContent = 'Bienvenido a Social Travel';

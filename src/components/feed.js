@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOutSocialTravel, addPost } from '../firebaseAuth.js';
+import { logOutSocialTravel, addPost, onGetPostInRealTime } from '../firebaseAuth.js';
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -191,6 +191,36 @@ export const feed = () => {
     logOutSocialTravel();
     onNavigate('/');
   });
+
+  const profileDiv = document.createElement('div');
+  profileDiv.id = 'profileDiv';
+
+  const postCreatedByUser = document.createElement('div');
+  postCreatedByUser.id = 'postCreatedByUser';
+  postCreatedByUser.className = 'cardsPosted';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
+      // variable con string vacio para que cada que se recorra añadamos info al contenedor
+      let html = '';
+
+      querySnapShot.forEach((doc) => {
+        html += `
+    <section class = 'containerCards'>
+    <div id = 'editPost'
+    <button> ... </button>
+    </div>
+    <div class = 'cardsOfData'> ${doc.data().post}</div>
+    </section>
+    `;
+      });
+
+      // creamos este div para limpiar el html
+      postCreatedByUser.innerHTML = html;
+    });
+  });
+  const callToMain = feedDiv.querySelector('#main');
+  callToMain.insertAdjacentElement('beforeend', postCreatedByUser);
 
   return feedDiv;
 };
