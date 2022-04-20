@@ -30,6 +30,7 @@ body {
     background: #fff;
     height: 777px;
 }
+
 img.logoSocialTravel {
     display: flex;
     flex-direction: column;
@@ -598,5 +599,32 @@ footer .content_1 .Box .red-social li a:hover{
         margin-right: 10px;
         font-size: 20px;
         height: 25px;
+    }
+    .cardsOfData{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        /* margin: 5%; */
+        padding: 10px;
+        background-color: #FFF;
+        border-radius: 0px 0px 10px 10px;
+        color: #2b2b2b;
+        font-size: medium;
+    }
+    div#editPost {
+        display: flex;
+        position: relative;
+        /* left: 90%; */
+        font-size: 40px;
+        background: #ECEFF4;
+        border-radius: 10px 10px 0px 0px;
+        justify-content: end;
+        padding: 0px 25px 0px 0px;
+    }
+    section.containerCards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 5%;
     }
 }

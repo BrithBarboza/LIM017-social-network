@@ -2,7 +2,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
 import { registerWithEmail, sendEmailVerification1 } from '../firebaseAuth.js';
-import { Login } from './login.js';
 
 export const register = () => {
   const homeDiv = document.createElement('div');
@@ -46,7 +45,7 @@ export const register = () => {
 
     // console.log(password);
     registerWithEmail(email, password);
-    sendEmailVerification1(email);
+    sendEmailVerification1(email.value);
 
     // Para limpiar el Form
 

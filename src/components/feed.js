@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOutSocialTravel, addPost, getPost } from '../firebaseAuth.js';
+import { logOutSocialTravel, addPost } from '../firebaseAuth.js';
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -134,15 +134,6 @@ export const feed = () => {
     }
   });
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    const querySnapShot = await getPost();
-    // console.log(querySnapShot);
-
-    querySnapShot.forEach(doc => {
-      console.log(doc.data());
-    });
-  });
-
   const sendPost = feedDiv.querySelector('#postButton');
   sendPost.addEventListener('click', (e) => {
     e.preventDefault();
@@ -170,6 +161,11 @@ export const feed = () => {
         e.preventDefault();
         alert(post);
         addPost(post);
+        modal.classList.toggle('modal-close');
+        setTimeout(() => {
+          modalC.style.opacity = '0';
+          modalC.style.visibility = 'hidden';
+        }, 800);
       });
     }
     const postIt = feedDiv.querySelector('#postIt');
@@ -183,6 +179,11 @@ export const feed = () => {
   btnLogOut.textContent = 'Cerrar Sesión';
 
   feedDiv.insertAdjacentElement('beforeend', btnLogOut);
+
+  const goToProfile = feedDiv.querySelector('#photoProfile');
+  goToProfile.addEventListener('click', () => {
+    onNavigate('/profile');
+  });
 
   const logOut = feedDiv.querySelector('#logOut');
   logOut.addEventListener('click', (e) => {

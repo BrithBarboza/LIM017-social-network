@@ -19,29 +19,28 @@ export const home = () => {
   buttonLogin.id = 'btnLogin';
   buttonLogin.className = 'btnSingin';
 
-  const buttonLoginWithGoogle = document.createElement('button');
-  buttonLoginWithGoogle.id = 'btnLoginWithGoogle';
-  buttonLoginWithGoogle.className = 'btnSingin';
-
   const buttonRegister = document.createElement('button');
   buttonRegister.id = 'btnRegister';
   buttonRegister.className = 'btnSingin';
 
   paragraph.textContent = 'Ingresa y conoce todo sobre el mundo de Social Travel';
   buttonLogin.textContent = 'Ingresar';
-  buttonLoginWithGoogle.textContent = 'Inicia con Google';
   buttonRegister.textContent = 'Registrate aquí';
 
   const planeImg = document.createElement('img');
   planeImg.setAttribute('src', './imgns/avion.svg');
   planeImg.classList = 'planeImg';
 
+  const buttonLoginWithGoogle = document.createElement('button');
+  buttonLoginWithGoogle.id = 'btnLoginWithGoogle';
+  buttonLoginWithGoogle.className = 'btnSingin';
+  buttonLoginWithGoogle.textContent = 'Inicia con Google';
+
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
-  buttonLoginWithGoogle.addEventListener('click', () => onNavigate('/feed'));
-
   buttonLoginWithGoogle.addEventListener('click', () => {
     registerWithGoogle();
+    onNavigate('/feed');
   });
 
   homeDiv.appendChild(logo);

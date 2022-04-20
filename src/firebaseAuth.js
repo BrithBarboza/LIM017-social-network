@@ -9,7 +9,7 @@ import {
   sendEmailVerification,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import {
-  getFirestore, collection, addDoc, getDocs,
+  getFirestore, collection, addDoc, getDocs, onSnapshot,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 import { app } from './Config.js';
 
@@ -134,3 +134,4 @@ const db = getFirestore(app);
 
 export const addPost = (post) => addDoc(collection(db, 'Posts'), { post });
 export const getPost = () => getDocs(collection(db, 'Posts'));
+export const onGetPostInRealTime = (callback) => onSnapshot(collection(db, 'Posts'), callback);

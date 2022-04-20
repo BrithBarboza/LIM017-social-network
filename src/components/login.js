@@ -64,7 +64,7 @@ export const Login = () => {
     e.preventDefault();
     const email = homeDiv.querySelector('#inputEmail').value;
     const password = homeDiv.querySelector('#inputPass').value;
-    LoginByEmailPassword(email, password);
+    LoginByEmailPassword(email.value, password.value);
 
     // onNavigate('/feed');
 
