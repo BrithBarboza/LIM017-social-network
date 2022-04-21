@@ -73,11 +73,6 @@ img.logoSocialTravel {
 .hide {
     display: none;
 }
-.homeDiv {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px;
-}
 #introduction{
     position: relative;
     display: flex;
@@ -196,16 +191,6 @@ img.logoSocialTravel {
     font-size: 20px;
     border-radius: 10px;
 }
-#btnLogin {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 14px 140px;
-    position: absolute;
-    top: 569.93px;
-    background: #65B2C6;
-    font-size: 20px;
-}
 #btnLoginWithGoogle {
     display: flex;
     flex-direction: row;
@@ -245,9 +230,10 @@ img.logoSocialTravel {
     display: grid;
     gap: 15px;
 }
-#inputEmail {
+/* #inputEmail {
     color: black;
-}
+    
+} */
 #photoProfile{  
 position: relative;
 margin: 1%;
@@ -402,12 +388,8 @@ justify-content: space-evenly;
 
 footer{
     grid-area: footer;
-    bottom: 0;
-    display: flex;
     justify-content: space-evenly;
     background-color: #65B2C6;
-    height: 200px;
-    color: white;
     border-radius: 10px 10px 0 0;
     position: fixed;
     margin-bottom: 0;
@@ -488,6 +470,78 @@ footer .content_1 .Box .red-social li a:hover{
     color:#D73D6C;
 }
 
+#formSignIn{
+    grid-area: formLogin;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: none;
+    color: #2b2b2b;
+}
+.Welcome{
+    margin: 5%;
+    text-align: center;
+    color: #2b2b2b;
+
+}
+.label{
+    margin: 5% 5% 0% 0%;
+}
+#btnHome{
+    grid-area: btnHome;
+    font-size: 18px;
+    color: #2b2b2b;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    text-decoration-line: underline;
+}
+#imgLogin{
+    grid-area: imageLogin;
+    width: 350px;
+
+}
+#homeDiv { 
+    background: #fff;
+    grid-template-areas: "formLogin"
+                         "btnHome"
+                         "imageLogin";
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10%;
+}
+#btnLogin {
+    margin: 5% 0;
+    width: 350px;
+    height: 48px;
+    left: 30.5px;
+    font-size: 20px;
+    font-weight: bold;
+    top: 479.5px;
+    color: white;
+    background: #65B2C6;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 4px 4px 8px grey;
+}
+
+input#inputEmail{
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    border: 1px solid #666666;
+    box-sizing: border-box;
+}
+input#inputPass{
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    border: 1px solid #666666;
+    box-sizing: border-box;
+}
+
 /* --------------MediaQuery-------------- */
 @media screen and (min-width:700px) {
     body {
@@ -498,11 +552,6 @@ footer .content_1 .Box .red-social li a:hover{
         background: rgba(0, 0, 0, 0.4);
         position: absolute;
         left: 0px;
-    }
-    .homeDiv {
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        gap: 20px;
     }
     img.logoSocialTravel {
         position: absolute;
@@ -522,17 +571,6 @@ footer .content_1 .Box .red-social li a:hover{
         border: 1px solid #FFFFFF;
         background: rgba(0, 0, 0, 0);
         color: white;
-        font-size: 20px;
-        margin-left: 13.5%;
-    }
-    #btnLogin {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 14px 140px;
-        position: absolute;
-        top: 50%;
-        background: #65B2C6;
         font-size: 20px;
         margin-left: 13.5%;
     }
@@ -583,7 +621,6 @@ footer .content_1 .Box .red-social li a:hover{
     footer{
         bottom: 0;
         display: flex;
-        height: 200px;
         color: white;
     }
         footer .content_1{
