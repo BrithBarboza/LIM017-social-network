@@ -1,4 +1,5 @@
 /* eslint-disable import/no-unresolved */
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -7,15 +8,19 @@ import {
   signInWithEmailAndPassword,
   signOut,
   sendEmailVerification,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import {
-  getFirestore, collection, addDoc, getDocs, onSnapshot,
-} from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
+  addDoc,
+  getFirestore,
+  collection,
+  getDocs, onSnapshot,
+} from './firebaseLinks.js';
+
 import { app } from './Config.js';
 
 const auth = getAuth(app);
 
-export const registerWithEmail = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+export const registerWithEmail = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password);
+};
 
 export const sendEmailVerification1 = () => sendEmailVerification(auth.currentUser);
 
@@ -49,7 +54,9 @@ export const registerWithGoogle = function () {
 };
 // Para ingresar con correo  y contraseña
 
-export const LoginByEmailPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const LoginByEmailPassword = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password);
+};
 // Para saber si está ingresando
 // console.log('ingresaste!');
 

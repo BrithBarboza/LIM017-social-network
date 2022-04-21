@@ -413,8 +413,9 @@ footer{
     margin-bottom: 0;
     width: 100%;
 }
-footer h2{
+h2{
     color: white;
+    /* footer */
 }
 footer .content_1{
     margin: 15px;
@@ -462,10 +463,11 @@ footer .content_3{
     align-content: center;
     height: 80px;
 }
-.Box h2{
+h2{
     font-size: 15px;
     height: 200%;
-    margin: 4% auto;
+    margin: 4% auto; 
+    /* box */
 }
 .red-social{
     list-style: none;
