@@ -2,7 +2,7 @@
 export const collection = () => Promise.resolve({});
 export const initializeApp = () => ({});
 export const getAuth = () => ({});
-export class GoogleAuthProvider {}
+export class GoogleAuthProvider {} 
 
 // const onSnapshot = (collection) => undefined;
 
