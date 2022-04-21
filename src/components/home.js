@@ -23,9 +23,9 @@ export const home = () => {
   buttonRegister.id = 'btnRegister';
   buttonRegister.className = 'btnSingin';
 
-  paragraph.textContent = 'Ingresa y conoce todo sobre el mundo de Social Travel';
+  paragraph.textContent = 'Ingresa y conoce todo sobre el mundo del turismo exploratorio';
   buttonLogin.textContent = 'Ingresar';
-  buttonRegister.textContent = 'Registrate aquí';
+  buttonRegister.textContent = 'Regístrate aquí';
 
   const planeImg = document.createElement('img');
   planeImg.setAttribute('src', './imgns/avion.svg');
