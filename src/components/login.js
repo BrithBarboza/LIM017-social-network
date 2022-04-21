@@ -24,7 +24,7 @@ export const Login = () => {
   label1.className = 'label';
 
   const inputEmail = document.createElement('input');
-  inputEmail.placeholder = 'Ingresa tu correo electronico';
+  inputEmail.placeholder = ' Ingresa tu correo electronico';
   inputEmail.type = 'email';
   inputEmail.id = 'inputEmail';
 
@@ -34,7 +34,7 @@ export const Login = () => {
   label2.className = 'label';
 
   const inputPass = document.createElement('input');
-  inputPass.placeholder = 'Ingresa tu contraseña';
+  inputPass.placeholder = ' Ingresa tu contraseña';
   inputPass.type = 'password';
   inputPass.id = 'inputPass';
 
@@ -44,12 +44,18 @@ export const Login = () => {
   btnLogin.value = 'Inicia Sesión';
   btnLogin.setAttribute('type', 'submit');
 
-  const buttonHome = document.createElement('button');
+  const imgLogin = document.createElement('img');
+  imgLogin.id = 'imgLogin';
+  imgLogin.className = 'imgLogin';
+  imgLogin.setAttribute('src','./imgns/imageLogin.svg');
 
+  const buttonHome = document.createElement('button');
+  buttonHome.id = 'btnHome';
   buttonHome.textContent = 'Regresar al Home';
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
+  homeDiv.insertAdjacentElement('beforeend', imgLogin);
   form.insertAdjacentElement('beforeend', Welcome);
   form.insertAdjacentElement('beforeend', errorParagraph);
   form.insertAdjacentElement('beforeend', label1);
@@ -59,6 +65,7 @@ export const Login = () => {
   form.insertAdjacentElement('beforeend', btnLogin);
   homeDiv.insertAdjacentElement('beforeend', form);
   homeDiv.insertAdjacentElement('beforeend', buttonHome);
+  
 
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
