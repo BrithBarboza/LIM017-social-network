@@ -6,6 +6,9 @@ export const Login = () => {
   const homeDiv = document.createElement('div');
   homeDiv.id = 'homeDiv';
 
+  const sectionForStyles = document.createElement('section');
+  sectionForStyles.id = 'sectionForStyles';
+
   const form = document.createElement('form');
   form.className = 'formSignIn';
   form.id = 'formSignIn';
@@ -39,8 +42,8 @@ export const Login = () => {
   inputPass.id = 'inputPass';
 
   const btnLogin = document.createElement('input');
-  btnLogin.id = 'btnLogin';
-  btnLogin.className = 'btnLogin';
+  btnLogin.id = 'btnLogin2';
+  btnLogin.className = 'btnLogin2';
   btnLogin.value = 'Inicia Sesión';
   btnLogin.setAttribute('type', 'submit');
 
@@ -55,7 +58,8 @@ export const Login = () => {
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
-  homeDiv.insertAdjacentElement('beforeend', imgLogin);
+  homeDiv.insertAdjacentElement('beforeend', sectionForStyles);
+  sectionForStyles.insertAdjacentElement('beforeend', imgLogin);
   form.insertAdjacentElement('beforeend', Welcome);
   form.insertAdjacentElement('beforeend', errorParagraph);
   form.insertAdjacentElement('beforeend', label1);
@@ -63,9 +67,8 @@ export const Login = () => {
   form.insertAdjacentElement('beforeend', label2);
   form.insertAdjacentElement('beforeend', inputPass);
   form.insertAdjacentElement('beforeend', btnLogin);
-  homeDiv.insertAdjacentElement('beforeend', form);
-  homeDiv.insertAdjacentElement('beforeend', buttonHome);
-  
+  sectionForStyles.insertAdjacentElement('beforeend', form);
+  sectionForStyles.insertAdjacentElement('beforeend', buttonHome);
 
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
