@@ -14,6 +14,8 @@ export const register = () => {
 
     <!-- Mensajes de Verificación -->
     <p id="error" class="alertDanger " role="alert"></p>
+    <p  class="alertVerification" role="alert"></p>
+
     <!-- Fin Mensajes de Verificación -->
 
    <form action="" id="formulario">
@@ -51,7 +53,11 @@ export const register = () => {
       // ...
       sendEmailVerification1(email).then((value) => {
         console.log(value);
-      // Email verification sent!
+        // Email verification sent!
+        const divVerification = homeDiv.querySelector('.alertVerification');
+        if (sendEmailVerification1 === true) {
+          divVerification.innerHTML = 'Verifica en la bandeja de entrada, ¡enviamos un correo de confirmación!';
+        }
       // ...
       }).catch((error) => {
         console.log(error);
@@ -62,7 +68,7 @@ export const register = () => {
         console.log(errorCode);
         const errorMessage = error.message;
         console.log(errorMessage);
-        const callAlertParagraph = document.querySelector('#error');
+        const callAlertParagraph = homeDiv.querySelector('#error');
 
         if (errorCode === 'auth/email-already-in-use') {
           callAlertParagraph.classList.add('showMessageError');
