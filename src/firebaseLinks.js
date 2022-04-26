@@ -15,7 +15,9 @@ import {
   getFirestore,
   deleteDoc,
   doc,
-  collection, getDocs, onSnapshot,
+  collection,
+  getDoc,
+  getDocs, onSnapshot,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
@@ -32,6 +34,7 @@ export {
   getFirestore,
   deleteDoc,
   doc,
+  getDoc,
   collection, getDocs, onSnapshot,
 
 };

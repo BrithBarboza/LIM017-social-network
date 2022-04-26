@@ -2,6 +2,7 @@
 import { onNavigate } from '../main.js';
 import {
   logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
+  // getPost,
 } from '../firebaseAuth.js';
 
 export const feed = () => {
@@ -27,9 +28,9 @@ export const feed = () => {
   <button class = "cta" > ¿Quiéres contarnos tu experiencia? </button>
   </div>
   </div>
-
   <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
+  <form id ="postIt" class ="postFedd">
 
   <div class = "textAndSelect">
   <span class = "textModal">Escribe tu reseña</span>
@@ -42,9 +43,8 @@ export const feed = () => {
   </select>
   </div>
   </div>
-  <form id ="postIt" class ="postFedd">
   <input type = "text" class = "title" placeholder = ¿Cómo te gustaría nombrar a tu reseña?" id = "title">
-  <input type = "text" class = "inputPost" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos...">
+  <input type = "text" class = "inputPost" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos..." id="postBtn">
 
   <p class = "close">X</p>
 
@@ -71,6 +71,13 @@ export const feed = () => {
   <button id="postInFeed" class = "yoNButton"> Sí </button>
   <button id="descartPost" class = "yoNButton"> No </button>
   </div>
+  <div class = "hide" id =" editionPost">
+  <p> ¿Estás seguro de editar tu reseña? </p>
+  <div id= "btnYoN">
+  <button id="postInFeed" class = "yoNButton"> Sí </button>
+  <button id="descartPost" class = "yoNButton"> No </button>
+  </div>
+
   </div>
   </div>
   </div>
@@ -104,22 +111,22 @@ export const feed = () => {
 
   </section>
   `;
-  
+
   feedDiv.innerHTML += templateFeed;
 
-  const cerrar = feedDiv.querySelectorAll('.close')[0];
-  const abrir = feedDiv.querySelectorAll('.cta')[0];
+  const close = feedDiv.querySelectorAll('.close')[0];
+  const open = feedDiv.querySelectorAll('.cta')[0];
   const modal = feedDiv.querySelectorAll('.modal')[0];
   const modalC = feedDiv.querySelectorAll('.modal-container')[0];
 
-  abrir.addEventListener('click', (e) => {
+  open.addEventListener('click', (e) => {
     e.preventDefault();
     modalC.style.opacity = '1';
     modalC.style.visibility = 'visible';
     modal.classList.toggle('modal-close');
   });
 
-  cerrar.addEventListener('click', () => {
+  close.addEventListener('click', () => {
     modal.classList.toggle('modal-close');
     setTimeout(() => {
       modalC.style.opacity = '0';
@@ -216,16 +223,16 @@ export const feed = () => {
     <div id = 'editPost'>
 
     <div class = "infoOfPost">
-    <div class = "titleOfData">Santuario de Reserva Nacional</div>
+    <div class = "titleOfData">${doc.data().title}</div>
     <div class = "dateOfData">22/04/22 11:54 hs.</div>
     </div>
   
     <button id = "editPostButton" value =""> ... </button>
-    <button id = "edit"> Editar </button>
+    <button data-id = "${doc.id}" class = "editPost"> Editar </button>
     <button class ="delete" data-id = "${doc.id}"> Borrar </button>
     </div>
 
-
+    <div class = 'showCategories'> ${doc.data().categories}</div>
     <div class = 'cardsOfData'> ${doc.data().post}</div>
     </section>
     `;
@@ -234,6 +241,35 @@ export const feed = () => {
       // creamos este div para limpiar el html
       postCreatedByUser.innerHTML = html;
 
+      // const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
+      // btnEditPost.forEach((btn) => {
+      //   btn.addEventListener('click', (event) => {
+      //     getPost(event.target.dataset.id).then((doc) => {
+      //       const dataPost = doc.data();
+      //       // Volver a abrir el modal
+      //       modalC.style.opacity = '1';
+      //       modalC.style.visibility = 'visible';
+      //       modal.classList.toggle('modal-close');
+      //       postConfirm.classList.add('hide');
+      //       postConfirm.classList.remove('postconfirm');
+
+      //       const postConfirm = feedDiv.querySelector('#editionPost');
+      //       // postConfirm.classList.add('');
+      //       postConfirm.classList.add('hide');
+
+      //       let post = feedDiv.querySelector('.inputPost').value;
+      //       let title = feedDiv.querySelector('.title').value;
+      //       let categories = feedDiv.querySelector('#categories').value;
+      //       title = dataPost.title;
+      //       post = dataPost.post;
+      //       console.log(post);
+
+      //       categories = dataPost.categories;
+      //     }).catch((error) => {
+      //       console.log(error);
+      //     });
+      //   });
+      // });
       const btnDelete = postCreatedByUser.querySelectorAll('.delete');
       btnDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
