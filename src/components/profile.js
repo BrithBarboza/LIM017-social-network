@@ -20,15 +20,18 @@ export const profile = () => {
         html += `
         <section class = 'containerCards'>
         <div id = 'editPost'>
-    
+
         <div class = "infoOfPost">
         <div class = "titleOfData">Santuario de Reserva Nacional</div>
         <div class = "dateOfData">22/04/22 11:54 hs.</div>
         </div>
-    
-        <button id = "editPostButton"> ... </button>
+  
+        <button id = "editPostButton" value =""> ... </button>
+        <button id = "edit"> Editar </button>
+        <button class ="delete" data-id = "${doc.id}"> Borrar </button>
         </div>
-    
+
+
         <div class = 'cardsOfData'> ${doc.data().post}</div>
         </section>
     `;
