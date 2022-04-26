@@ -43,6 +43,7 @@ export const register = () => {
     e.preventDefault();
     const email = homeDiv.querySelector('#emailRegister').value;
     const password = homeDiv.querySelector('#password').value;
+    // const name = homeDiv.querySelector('#nameAndFirstname').value;
     // console.log(email);
 
     // console.log(password);
@@ -59,6 +60,7 @@ export const register = () => {
           divVerification.innerHTML = 'Verifica en la bandeja de entrada, ¡enviamos un correo de confirmación!';
         }
       // ...
+        // update(name);
       }).catch((error) => {
         console.log(error);
       });

@@ -11,7 +11,10 @@ import {
   addDoc,
   getFirestore,
   collection,
-  getDocs, onSnapshot,
+  deleteDoc,
+  doc,
+  getDocs,
+  onSnapshot,
 } from './firebaseLinks.js';
 
 import { app } from './Config.js';
@@ -52,6 +55,7 @@ export const logOutSocialTravel = () => {
 };
 const db = getFirestore(app);
 
-export const addPost = (post) => addDoc(collection(db, 'Posts'), { post });
+export const addPost = (post, title, categories) => addDoc(collection(db, 'Posts'), { post, title, categories });
 export const getPost = () => getDocs(collection(db, 'Posts'));
 export const onGetPostInRealTime = (callback) => onSnapshot(collection(db, 'Posts'), callback);
+export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));

@@ -1,6 +1,8 @@
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { logOutSocialTravel, addPost, onGetPostInRealTime } from '../firebaseAuth.js';
+import {
+  logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
+} from '../firebaseAuth.js';
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -31,7 +33,7 @@ export const feed = () => {
 
   <div class = "textAndSelect">
   <span class = "textModal">Escribe tu reseña</span>
-  <div id = "categories" class ="filter">
+  <div id = "categoriesBtns" class ="filter">
   <select id= "categories">
   <option>Lugares</option>
   <option>Hospedajes</option>
@@ -41,6 +43,7 @@ export const feed = () => {
   </div>
   </div>
   <form id ="postIt" class ="postFedd">
+  <input type = "text" class = "title" placeholder = ¿Cómo te gustaría nombrar a tu reseña?" id = "title">
   <input type = "text" class = "inputPost" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos...">
 
   <p class = "close">X</p>
@@ -138,6 +141,8 @@ export const feed = () => {
   sendPost.addEventListener('click', (e) => {
     e.preventDefault();
     const post = feedDiv.querySelector('.inputPost').value;
+    const title = feedDiv.querySelector('.title').value;
+    const categories = feedDiv.querySelector('#categories').value;
 
     if (post !== '') {
       const postConfirm = feedDiv.querySelector('#postConfirm');
@@ -160,7 +165,7 @@ export const feed = () => {
       postInFeed.addEventListener('click', () => {
         e.preventDefault();
         alert(post);
-        addPost(post);
+        addPost(post, title, categories);
         modal.classList.toggle('modal-close');
         setTimeout(() => {
           modalC.style.opacity = '0';
@@ -208,7 +213,11 @@ export const feed = () => {
         html += `
     <section class = 'containerCards'>
     <div id = 'editPost'
-    <button> ... </button>
+  
+    <button value =""> ... </button>
+    <button id = "edit"> Editar </button>
+    <button class ="delete" data-id = "${doc.id}"> Borrar </button>
+  
     </div>
     <div class = 'cardsOfData'> ${doc.data().post}</div>
     </section>
@@ -217,6 +226,13 @@ export const feed = () => {
 
       // creamos este div para limpiar el html
       postCreatedByUser.innerHTML = html;
+
+      const btnDelete = postCreatedByUser.querySelectorAll('.delete');
+      btnDelete.forEach((btn) => {
+        btn.addEventListener('click', ({ target: { dataset } }) => {
+          deletePost(dataset.id);
+        });
+      });
     });
   });
   const callToMain = feedDiv.querySelector('#main');

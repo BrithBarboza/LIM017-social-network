@@ -13,6 +13,8 @@ import {
 import {
   addDoc,
   getFirestore,
+  deleteDoc,
+  doc,
   collection, getDocs, onSnapshot,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
@@ -28,6 +30,8 @@ export {
   sendEmailVerification,
   addDoc,
   getFirestore,
+  deleteDoc,
+  doc,
   collection, getDocs, onSnapshot,
 
 };
