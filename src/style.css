@@ -447,7 +447,7 @@ footer .content_3{
 }
 h2{
     font-size: 15px;
-    height: 200%;
+    /* height: 200%; */
     margin: 4% auto; 
     /* box */
 }
@@ -559,6 +559,48 @@ input#inputPass{
     box-sizing: border-box;
 }
 
+.containerCards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3%;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 8px grey;
+    border-radius: 10px;
+    
+}
+#editPost{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ECEFF4;
+    border-radius: 10px 10px 0 0;
+
+}
+.infoOfPost{
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    color:#2b2b2b;
+    
+}
+.titleOfData{
+    font-size: 18px;
+    font-weight: bold;
+}
+.dateOfData{
+    font-size: 16px;
+    font-style: italic;
+}
+#editPostButton{
+    color: #2b2b2b;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    padding: 1% 1% 8%;
+}
+
+
 /* --------------MediaQuery-------------- */
 @media screen and (min-width:700px) {
     body {
@@ -595,7 +637,6 @@ input#inputPass{
     #btnLogin {
         width: 350px;
         height: 48px;
-        left: 30.5px;
         font-size: 20px;
         font-weight: bold;
         top: 50%;
@@ -603,7 +644,7 @@ input#inputPass{
         background: #65B2C6;
         border-radius: 10px;
         border: none;
-        box-shadow: 4px 4px 8px #2b2b2b;
+        box-shadow: 4px 4px 8px grey;;
         margin-left: 13.5%;
         position: absolute;
       }
@@ -679,27 +720,16 @@ input#inputPass{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        /* margin: 5%; */
         padding: 10px;
         background-color: #FFF;
         border-radius: 0px 0px 10px 10px;
         color: #2b2b2b;
         font-size: medium;
     }
-    div#editPost {
-        display: flex;
-        position: relative;
-        /* left: 90%; */
-        font-size: 40px;
-        background: #ECEFF4;
-        border-radius: 10px 10px 0px 0px;
-        justify-content: end;
-        padding: 0px 25px 0px 0px;
-    }
     section.containerCards {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
         margin: 5%;
+    }
+    #editPostButton{
+        padding: 1%;
     }
 }

@@ -103,7 +103,8 @@ export const feed = () => {
   </footer>
 
   </section>
-`;
+  `;
+  
   feedDiv.innerHTML += templateFeed;
 
   const cerrar = feedDiv.querySelectorAll('.close')[0];
@@ -212,13 +213,19 @@ export const feed = () => {
       querySnapShot.forEach((doc) => {
         html += `
     <section class = 'containerCards'>
-    <div id = 'editPost'
+    <div id = 'editPost'>
+
+    <div class = "infoOfPost">
+    <div class = "titleOfData">Santuario de Reserva Nacional</div>
+    <div class = "dateOfData">22/04/22 11:54 hs.</div>
+    </div>
   
-    <button value =""> ... </button>
+    <button id = "editPostButton" value =""> ... </button>
     <button id = "edit"> Editar </button>
     <button class ="delete" data-id = "${doc.id}"> Borrar </button>
-  
     </div>
+
+
     <div class = 'cardsOfData'> ${doc.data().post}</div>
     </section>
     `;
