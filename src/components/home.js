@@ -47,7 +47,7 @@ export const home = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-      console.log(token, user);
+      /* console.log(token, user); */
       // ...
       onNavigate('/feed');
 
