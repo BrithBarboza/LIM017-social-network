@@ -13,7 +13,7 @@ export const feed = () => {
   <nav class="Menu" id="Menu">
     <div id = "introduction">
     <img src="./imgns/Vectorlogo.svg" class= "logo">
-    <a title="Mi perfil" href=""><img src="./imgns/blank-profile-picture.webp" class = "profile" alt="Mi Perfil" /></a>
+    <a title="Mi perfil" href=""><img src="./imgns/imageProfile.jpg" class = "profile" alt="Mi Perfil" /></a>
     </div>
     <div id = "regards">
      <span>Hola + '_______' </span>
@@ -24,10 +24,11 @@ export const feed = () => {
   <h2 class="containerH2"><center>Descubre un nuevo lugar para visitar</center></h2>
 
   <div id = "btnPostAndPhoto">
-  <img src = "./imgns/blank-profile-picture.webp" id = "photoProfile" width = "40px" height = "40px">
+  <img src = "./imgns/imageProfile.jpg" id = "photoProfile" width = "50px" height = "50px">
   <button class = "cta" > ¿Quiéres contarnos tu experiencia? </button>
   </div>
   </div>
+
   <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
   <form id ="postIt" class ="postFedd">
@@ -43,6 +44,7 @@ export const feed = () => {
   </select>
   </div>
   </div>
+
   <input type = "text" class = "title" placeholder = ¿Cómo te gustaría nombrar a tu reseña?" id = "title">
   <input type = "text" class = "inputPost" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos..." id="postBtn">
 
@@ -51,7 +53,6 @@ export const feed = () => {
   <div id = "containerIconTransports">
   <span>Selecciona el/los transporte/s que usaste para llegar aquí</span>
   <div id = "TransportButtons">
-
    <i id = "walk"><img class = "transIcon" src = "./imgns/transportation_walk.svg"></i>
    <i id = "car"><img class = "transIcon" src = "./imgns/transportation_car.svg"></i>
    <i id = "boat"><img class = "transIcon" src = "./imgns/transportation_boat.svg"></i>
@@ -60,17 +61,22 @@ export const feed = () => {
    <i id = "motorcycle"><img class = "transIcon" src = "./imgns/transportation_motorcycle.svg"></i>
   </div>
   </div>
+
   <div class = "postButtons">
   <button type = "button" id = "postPhotosButton" class = "modalButton">Fotos</button>
   <input type = "submit"  id = "postButton" class = "modalButton" value = "Publicar">
   </div>
   </form>
+
   <div id = "postConfirm" class= "hide"> 
   <p> ¿Estás seguro de publicar tu reseña? </p>
   <div id= "btnYoN">
   <button id="postInFeed" class = "yoNButton"> Sí </button>
   <button id="descartPost" class = "yoNButton"> No </button>
   </div>
+  </div>
+  </div>
+  
   <div class = "hide" id =" editionPost">
   <p> ¿Estás seguro de editar tu reseña? </p>
   <div id= "btnYoN">
@@ -219,9 +225,17 @@ export const feed = () => {
 
       querySnapShot.forEach((doc) => {
         html += `
-    <section class = 'containerCards'>
-    <div id = 'editPost'>
+    <section class = "frame">
+    <div class = 'containerCards'>
 
+    <div id = "firstPartPost">
+    <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" width = "50px" height = "50px">
+    <label class = "nameOfProfileCard">Chris Martins</label>
+    <a href="" class="fa-regular fa-heart" width = "40px" height = "40px"></a>
+    </div>
+
+    <div id = "secondPartPost">
+    <div id = 'headerOfPost'>
     <div class = "infoOfPost">
     <div class = "titleOfData">${doc.data().title}</div>
     <div class = "dateOfData">22/04/22 11:54 hs.</div>
@@ -234,6 +248,9 @@ export const feed = () => {
 
     <div class = 'showCategories'> ${doc.data().categories}</div>
     <div class = 'cardsOfData'> ${doc.data().post}</div>
+    </div>
+
+    </div>
     </section>
     `;
       });
