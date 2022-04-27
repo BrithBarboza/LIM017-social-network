@@ -18,22 +18,33 @@ export const profile = () => {
       querySnapShot.forEach((doc) => {
         const postInProfile = doc.data();
         html += `
-        <section class = 'containerCards'>
-        <div id = 'editPost'>
+        <section class = "frame">
+    <div class = 'containerCards'>
 
-        <div class = "infoOfPost">
-        <div class = "titleOfData">Santuario de Reserva Nacional</div>
-        <div class = "dateOfData">22/04/22 11:54 hs.</div>
-        </div>
+    <div id = "firstPartPost">
+    <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" width = "50px" height = "50px">
+    <label class = "nameOfProfileCard">Chris Martins</label>
+    <a href="" class="fa-regular fa-heart" width = "40px" height = "40px"></a>
+    </div>
+
+    <div id = "secondPartPost">
+    <div id = 'headerOfPost'>
+    <div class = "infoOfPost">
+    <div class = "titleOfData">${doc.data().title}</div>
+    <div class = "dateOfData">22/04/22 11:54 hs.</div>
+    </div>
   
-        <button id = "editPostButton" value =""> ... </button>
-        <button id = "edit"> Editar </button>
-        <button class ="delete" data-id = "${doc.id}"> Borrar </button>
-        </div>
+    <button id = "editPostButton" value =""> ... </button>
+    <button data-id = "${doc.id}" class = "editPost"> Editar </button>
+    <button class ="delete" data-id = "${doc.id}"> Borrar </button>
+    </div>
 
+    <div class = 'showCategories'> ${doc.data().categories}</div>
+    <div class = 'cardsOfData'> ${doc.data().post}</div>
+    </div>
 
-        <div class = 'cardsOfData'> ${doc.data().post}</div>
-        </section>
+    </div>
+    </section>
     `;
       });
 
