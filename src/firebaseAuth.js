@@ -36,11 +36,7 @@ auth.languageCode = 'es';
 export const registerWithGoogle = () => signInWithPopup(auth, provider);
 // Para ingresar con correo  y contraseña
 
-export const LoginByEmailPassword = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password);
-};
-// Para saber si está ingresando
-// console.log('ingresaste!');
+export const manuaLogin = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 export const logOutSocialTravel = () => {
   signOut(auth).then(() => {

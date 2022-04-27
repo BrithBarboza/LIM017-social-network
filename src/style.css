@@ -239,7 +239,7 @@ border-radius: 50%;
 }
 .planeImg{
     position: absolute;
-    top:25% -47%;
+    /* top:25% -47%; */
   }
 .showMessageError {
     color: red;
@@ -474,7 +474,7 @@ footer .content_1 .Box .red-social li a:hover{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: none;
+    /* align-items: none; */
     color: #2b2b2b;
 }
 .Welcome{

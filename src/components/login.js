@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
-import { LoginByEmailPassword } from '../firebaseAuth.js';
+import { manuaLogin } from '../firebaseAuth.js';
 
 export const Login = () => {
   const homeDiv = document.createElement('div');
@@ -50,7 +50,7 @@ export const Login = () => {
   const imgLogin = document.createElement('img');
   imgLogin.id = 'imgLogin';
   imgLogin.className = 'imgLogin';
-  imgLogin.setAttribute('src','./imgns/imageLogin.svg');
+  imgLogin.setAttribute('src', './imgns/imageLogin.svg');
 
   const buttonHome = document.createElement('button');
   buttonHome.id = 'btnHome';
@@ -72,15 +72,16 @@ export const Login = () => {
 
   btnLogin.addEventListener('click', (e) => {
     e.preventDefault();
-    const email = homeDiv.querySelector('#inputEmail').value;
-    const password = homeDiv.querySelector('#inputPass').value;
+    const email = form.querySelector('#inputEmail').value;
+    const password = form.querySelector('#inputPass').value;
     console.log(email, password);
-    LoginByEmailPassword(email, password).then((userCredential) => {
+
+    manuaLogin(email, password).then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      onNavigate('/feed');
+      console.log(user);
 
-      return user.email;
+      onNavigate('/feed');
 
       // ...
     }).catch((error) => {
@@ -99,7 +100,7 @@ export const Login = () => {
       }
     });
 
-    // onNavigate('/feed');
+    onNavigate('/feed');
 
     // Para limpiar el formulario
 

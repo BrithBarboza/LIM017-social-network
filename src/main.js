@@ -37,10 +37,11 @@ window.onpopstate = () => {
 };
 
 rootDiv.appendChild(component());
-windows.addEventListener('DOMContentLoaded', () => {
-const pathname = window.location.pathname;
-onNavigate(pathname);
-});
+
+// window.addEventListener('DOMContentLoaded', () => {
+//   const pathname = window.location.pathname;
+//   onNavigate(pathname);
+// });
 // const btnLoginWithGoogle = document.querySelector('#btnLoginWithGoogle');
 // btnLoginWithGoogle.addEventListener('click', () => {
 //   registerWithGoogle();
