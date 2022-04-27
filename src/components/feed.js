@@ -13,7 +13,7 @@ export const feed = () => {
   <nav class="Menu" id="Menu">
     <div id = "introduction">
     <img src="./imgns/Vectorlogo.svg" class= "logo">
-    <a title="Mi perfil" href=""><img src="./imgns/imageProfile.jpg" class = "profile" alt="Mi Perfil" /></a>
+    <a title="Mi perfil" href=""><img src = "" class = "profile" alt="Mi Perfil" /></a>
     </div>
     <div id = "regards">
      <span>Hola + '_______' </span>
@@ -24,7 +24,7 @@ export const feed = () => {
   <h2 class="containerH2"><center>Descubre un nuevo lugar para visitar</center></h2>
 
   <div id = "btnPostAndPhoto">
-  <img src = "./imgns/imageProfile.jpg" id = "photoProfile" width = "50px" height = "50px">
+  <img id = "photoProfile" class = "profile">
   <button class = "cta" > ¿Quiéres contarnos tu experiencia? </button>
   </div>
   </div>
@@ -185,11 +185,14 @@ export const feed = () => {
           modalC.style.opacity = '0';
           modalC.style.visibility = 'hidden';
         }, 800);
+
       });
     }
     const postIt = feedDiv.querySelector('#postIt');
     postIt.reset();
   });
+
+ 
 
   const btnLogOut = document.createElement('a');
   btnLogOut.setAttribute('href', '');
@@ -218,7 +221,7 @@ export const feed = () => {
   postCreatedByUser.id = 'postCreatedByUser';
   postCreatedByUser.className = 'cardsPosted';
 
-  window.addEventListener('DOMContentLoaded', () => {
+  
     onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
       // variable con string vacio para que cada que se recorra añadamos info al contenedor
       let html = '';
@@ -229,7 +232,7 @@ export const feed = () => {
     <div class = 'containerCards'>
 
     <div id = "firstPartPost">
-    <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" width = "50px" height = "50px">
+    <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" class = "profile">
     <label class = "nameOfProfileCard">Chris Martins</label>
     <a href="" class="fa-regular fa-heart" width = "40px" height = "40px"></a>
     </div>
@@ -253,40 +256,45 @@ export const feed = () => {
     </div>
     </section>
     `;
-      });
+  
 
       // creamos este div para limpiar el html
       postCreatedByUser.innerHTML = html;
 
-      // const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
-      // btnEditPost.forEach((btn) => {
-      //   btn.addEventListener('click', (event) => {
-      //     getPost(event.target.dataset.id).then((doc) => {
-      //       const dataPost = doc.data();
-      //       // Volver a abrir el modal
-      //       modalC.style.opacity = '1';
-      //       modalC.style.visibility = 'visible';
-      //       modal.classList.toggle('modal-close');
-      //       postConfirm.classList.add('hide');
-      //       postConfirm.classList.remove('postconfirm');
 
-      //       const postConfirm = feedDiv.querySelector('#editionPost');
-      //       // postConfirm.classList.add('');
-      //       postConfirm.classList.add('hide');
 
-      //       let post = feedDiv.querySelector('.inputPost').value;
-      //       let title = feedDiv.querySelector('.title').value;
-      //       let categories = feedDiv.querySelector('#categories').value;
-      //       title = dataPost.title;
-      //       post = dataPost.post;
-      //       console.log(post);
+       /* const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
+        btnEditPost.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+        getPost(event.target.dataset.id).then((doc) => {
+        const dataPost = doc.data();
+         // Volver a abrir el modal
+          modalC.style.opacity = '1';
+         modalC.style.visibility = 'visible';
+         modal.classList.toggle('modal-close');
+         postConfirm.classList.add('hide');
+         postConfirm.classList.remove('postconfirm');
 
-      //       categories = dataPost.categories;
-      //     }).catch((error) => {
-      //       console.log(error);
-      //     });
-      //   });
-      // });
+         const postEditionConfirm = feedDiv.querySelector('#editionPost');
+          // postEditionConfirm.classList.add('');
+         postEditionConfirm.classList.add('hide');
+
+         let post = feedDiv.querySelector('.inputPost').value;
+        let title = feedDiv.querySelector('.title').value;
+        let categories = feedDiv.querySelector('#categories').value;
+        title = dataPost.title;
+        post = dataPost.post;
+        console.log(post);
+
+        categories = dataPost.categories;
+      }).catch((error) => {
+       console.log(error);
+      });
+      });
+      }); */
+
+
+
       const btnDelete = postCreatedByUser.querySelectorAll('.delete');
       btnDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
