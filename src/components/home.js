@@ -50,6 +50,12 @@ export const home = () => {
       console.log(token, user);
       // ...
       onNavigate('/feed');
+
+      document.querySelectorAll('.profile').forEach(element => {
+            element.setAttribute('src', user.photoURL);
+            /* debugger; */
+          });
+
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;

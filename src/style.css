@@ -200,6 +200,7 @@ img.logoSocialTravel {
     top: 633.43px;
     border: 1px solid #FFFFFF;
     background: rgba(0, 0, 0, 0);
+    box-shadow: 4px 4px 8px rgb(0 0 0 / 25%);
     color: white;
     font-size: 20px;
 }
@@ -644,7 +645,7 @@ label.nameOfProfileCard{
         position: absolute;
         top: 60%;
         border: 1px solid #FFFFFF;
-        background: rgba(0, 0, 0, 0);
+        box-shadow: 4px 4px 8px rgb(0 0 0 / 25%);
         color: white;
         font-size: 20px;
         margin-left: 13.5%;
