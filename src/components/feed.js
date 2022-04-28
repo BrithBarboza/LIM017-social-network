@@ -185,14 +185,11 @@ export const feed = () => {
           modalC.style.opacity = '0';
           modalC.style.visibility = 'hidden';
         }, 800);
-
       });
     }
     const postIt = feedDiv.querySelector('#postIt');
     postIt.reset();
   });
-
- 
 
   const btnLogOut = document.createElement('a');
   btnLogOut.setAttribute('href', '');
@@ -221,13 +218,12 @@ export const feed = () => {
   postCreatedByUser.id = 'postCreatedByUser';
   postCreatedByUser.className = 'cardsPosted';
 
-  
-    onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
-      // variable con string vacio para que cada que se recorra añadamos info al contenedor
-      let html = '';
+  onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
+    // variable con string vacio para que cada que se recorra añadamos info al contenedor
+    let html = '';
 
-      querySnapShot.forEach((doc) => {
-        html += `
+    querySnapShot.forEach((doc) => {
+      html += `
     <section class = "frame">
     <div class = 'containerCards'>
 
@@ -256,14 +252,11 @@ export const feed = () => {
     </div>
     </section>
     `;
-  
 
       // creamos este div para limpiar el html
       postCreatedByUser.innerHTML = html;
 
-
-
-       /* const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
+      /* const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
         btnEditPost.forEach((btn) => {
         btn.addEventListener('click', (event) => {
         getPost(event.target.dataset.id).then((doc) => {
@@ -292,8 +285,6 @@ export const feed = () => {
       });
       });
       }); */
-
-
 
       const btnDelete = postCreatedByUser.querySelectorAll('.delete');
       btnDelete.forEach((btn) => {

@@ -1,23 +1,18 @@
-import { register } from '../src/components/register.js';
 import { onNavigate } from '../src/main.js';
+import { Login } from '../src/components/login.js';
+import { register } from '../src/components/register.js';
 
 jest.mock('../src/firebaseLinks.js');
 
-const registerTest = () => {
-    const divRegister = `
-    <div id="textTest">El segundo test</div>`;
-    const divTest = document.createElement('div');
-    divTest.innerHTML = divRegister;
-    return divTest;
-};
-const componentsTest = {
-    register: registerTest,
-};
-
-describe('main', () => {
-    it('Debería de cargar el template de Register', () => {
-        document.body.innerHTML = '<div id="divTest" class="divTest"></div>';
-        onNavigate('/register', componentsTest);
-        expect(document.getElementById('divTest').textContent.trim()).toEqual('El segundo test');
-    });
+describe('Función onNavigate', () => {
+  it('Debe dirigirte a la vista de la ruta "Register"', () => {
+    document.body.innerHTML = '<div id="root"></div>';
+    const registerComponent = register();
+    expect(onNavigate('/register')).toEqual(registerComponent);
+  });
+  it('Debe dirigirte a la vista de la ruta "Login"', () => {
+    document.body.innerHTML = '<div id="root"></div>';
+    const loginComponent = Login();
+    expect(onNavigate('/login')).toEqual(loginComponent);
+  });
 });

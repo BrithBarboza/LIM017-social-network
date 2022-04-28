@@ -6,8 +6,6 @@ import { feed } from './components/feed.js';
 import { profile } from './components/profile.js';
 // import { registerWithEmail } from './firebaseAuth.js';
 
-const rootDiv = document.getElementById('root');
-
 const routes = {
   '/': home,
   '/register': register,
@@ -19,6 +17,8 @@ const routes = {
 };
 
 export const onNavigate = (pathname) => {
+  const rootDiv = document.getElementById('root');
+
   window.history.pushState(
     {},
     pathname,
@@ -27,21 +27,22 @@ export const onNavigate = (pathname) => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
-  rootDiv.appendChild(routes[pathname]());
-};
+  const component = routes[window.location.pathname];
 
-const component = routes[window.location.pathname];
+  window.onpopstate = () => {
+    rootDiv.appendChild(component());
+  };
 
-window.onpopstate = () => {
   rootDiv.appendChild(component());
+
+  return rootDiv.appendChild(routes[pathname]());
 };
 
-rootDiv.appendChild(component());
+window.addEventListener('DOMContentLoaded', () => {
+  const pathname = window.location.pathname;
 
-// window.addEventListener('DOMContentLoaded', () => {
-//   const pathname = window.location.pathname;
-//   onNavigate(pathname);
-// });
+  onNavigate(pathname);
+});
 // const btnLoginWithGoogle = document.querySelector('#btnLoginWithGoogle');
 // btnLoginWithGoogle.addEventListener('click', () => {
 //   registerWithGoogle();
