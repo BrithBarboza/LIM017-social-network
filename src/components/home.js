@@ -51,11 +51,10 @@ export const home = () => {
       // ...
       onNavigate('/feed');
 
-      document.querySelectorAll('.profile').forEach(element => {
-            element.setAttribute('src', user.photoURL);
-            /* debugger; */
-          });
-
+      document.querySelectorAll('.profile').forEach((element) => {
+        element.setAttribute('src', user.photoURL);
+        /* debugger; */
+      });
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
