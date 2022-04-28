@@ -53,7 +53,6 @@ export const home = () => {
 
       document.querySelectorAll('.profile').forEach(element => {
             element.setAttribute('src', user.photoURL);
-            /* debugger; */
           });
 
     }).catch((error) => {
