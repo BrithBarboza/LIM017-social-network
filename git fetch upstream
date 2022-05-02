@@ -1,0 +1,282 @@
+[33mcommit 376d83847d601cdc0624254b37a8fb3605c99b6e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31mupstream/main[m[33m)[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Wed Apr 27 18:45:11 2022 -0500
+
+    funcion que guarda a la funcion de login auth modificada y arreglo de navegación
+
+[33mcommit dacd513857c7056bbc023afae13d1eb66df4075a[m
+Merge: 46e0b64 aad1a60
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Wed Apr 27 18:11:54 2022 -0500
+
+    Merge pull request #18 from BrithBarboza/main
+    
+    test parte 2
+
+[33mcommit aad1a602cf3495b9c119c582a304fce734534f5d[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Wed Apr 27 18:07:33 2022 -0500
+
+    test parte 2
+
+[33mcommit 46e0b64b42e1591aa27249c2f6450ee89acde696[m
+Merge: 70c8d95 8caf0f3
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Wed Apr 27 15:28:41 2022 -0500
+
+    Merge pull request #17 from BrithBarboza/main
+    
+    photo profile and login changin!
+
+[33mcommit 8caf0f31603da2fd34d9ce219d7f2ff4b6b36213[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Wed Apr 27 13:02:19 2022 -0500
+
+    photo profile and login changin!
+
+[33mcommit 70c8d95d831a65c9aee381d09816fa379e0b0241[m
+Merge: d670fd8 0668465
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Wed Apr 27 12:13:51 2022 -0500
+
+    Merge pull request #16 from BrithBarboza/main
+    
+    estilos de alta parte 2
+
+[33mcommit 06684653a5636255b19c4b957bf34e998c9d9198[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Wed Apr 27 08:09:58 2022 -0500
+
+    estilos de alta parte 2
+
+[33mcommit d670fd80a67eb602a1d80c95cb1ea43e0a0722d8[m
+Merge: 4199d5d efa3b71
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Wed Apr 27 08:04:36 2022 -0500
+
+    Merge pull request #15 from BrithBarboza/main
+    
+    estilos de alta fidelidad
+
+[33mcommit efa3b718ebde8735c7018c0c640c0634dba7cb95[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Tue Apr 26 23:59:51 2022 -0500
+
+    estilos de alta fidelidad
+
+[33mcommit 4199d5d84ce943e66ecfb9efa34bbfd3affd00ba[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Tue Apr 26 18:05:34 2022 -0500
+
+    edicion de post parte1
+
+[33mcommit 2356596b5012bcd08899c31c19dd932090cc4bfb[m
+Merge: b1c5aea 233a777
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Tue Apr 26 10:28:31 2022 -0500
+
+    Merge pull request #14 from BrithBarboza/main
+    
+    Fix template
+
+[33mcommit 233a7773c60b51d76b228276dd5994db5323942e[m
+Merge: e9fcc3d b1c5aea
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Tue Apr 26 10:25:24 2022 -0500
+
+    fix template
+
+[33mcommit b1c5aea65642b795b631a4955ef4cb325ff7d817[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Tue Apr 26 10:10:25 2022 -0500
+
+    cambios no subidos en btn delete
+
+[33mcommit e9fcc3df1aef50c054212ea9382025a433379db6[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Tue Apr 26 10:02:41 2022 -0500
+
+    style cards on feed and profile
+
+[33mcommit a82a7fd0f2f38ebc9740eb317555eda0e4f9a9a5[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Sun Apr 24 20:56:15 2022 -0500
+
+    div de verificacion con email y promesa en loginwithgoogle
+
+[33mcommit 5cfde70a8a87a7532d8af171be1823c4e6f1c2b9[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Thu Apr 21 20:21:44 2022 -0500
+
+    estilos del btn login arreglados
+
+[33mcommit 871b02ad1bef1cc4fc0855d63c1a7aec2ab11fbe[m
+Merge: 371821b ca1172d
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Thu Apr 21 16:18:44 2022 -0500
+
+    Merge branch 'main' of https://github.com/LGomez96/LIM017-social-network
+
+[33mcommit 371821b00a6ababcea7690bca2bf64b9091b6a9f[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Thu Apr 21 16:12:53 2022 -0500
+
+     test 1
+
+[33mcommit 543db6ea045813b9f7113dca8a924fb3d36f1b19[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Thu Apr 21 16:11:22 2022 -0500
+
+    test 1
+
+[33mcommit ca1172d6815d28762a2c4a5ec279a218cc8243ca[m
+Merge: 01ed7fc e024fc0
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Thu Apr 21 16:10:30 2022 -0500
+
+    Merge pull request #12 from BrithBarboza/main
+    
+    style homeDiv
+
+[33mcommit e024fc0f5144407eff66ab79ec178c8cfb104462[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Thu Apr 21 16:01:03 2022 -0500
+
+    style homeDiv
+
+[33mcommit 01ed7fc5ad207a8812b02d05fdfc0877a3472570[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Wed Apr 20 13:06:27 2022 -0500
+
+    arreglo de promesas y footer
+
+[33mcommit ba3fb6ab34af4786c020416e951f6cdef7c3a041[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Wed Apr 20 08:04:35 2022 -0500
+
+    database in real time
+
+[33mcommit b4b876bb20b8966ff0a3f7bd426fcd6403dd66b4[m
+Merge: a2e9c67 29faba6
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Tue Apr 19 12:42:46 2022 -0500
+
+    Merge pull request #11 from BrithBarboza/main
+    
+    style none
+
+[33mcommit 29faba6020891efd8cf8b1e7fdd27abc7cfd3cae[m
+Merge: ced25a9 a2e9c67
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Tue Apr 19 12:40:36 2022 -0500
+
+    footer and profile
+
+[33mcommit ced25a962458c23048fd352dcbc770fdceeefabf[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Tue Apr 19 07:23:54 2022 -0500
+
+    style none
+
+[33mcommit a2e9c67eaa950552df623bf00e4d6696da522db3[m
+Merge: 4262ce9 a78a2bd
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Mon Apr 18 18:03:01 2022 -0500
+
+    estilos de post
+
+[33mcommit 4262ce9a4fe5ca8af0a8ccc6e63413d9de8b277b[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Mon Apr 18 17:57:12 2022 -0500
+
+    estilos del post
+
+[33mcommit a78a2bdaed0b4788960d956b219ef3127f863e94[m
+Merge: ee946a2 6040456
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Mon Apr 18 12:34:35 2022 -0500
+
+    Merge pull request #10 from BrithBarboza/main
+    
+    nothing 4
+
+[33mcommit 60404567b786427e3257df0a282f300b891ae838[m
+Merge: 61bdb2c ee946a2
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Mon Apr 18 12:31:38 2022 -0500
+
+    fix style
+
+[33mcommit ee946a2b7f2516fb687de4b9ce617d7859b2edc9[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Mon Apr 18 12:13:00 2022 -0500
+
+    database y estilos
+
+[33mcommit 61bdb2c64f90a37379e8f5acf8d01b670ff4a2d8[m
+Merge: be6ef42 211ab2a
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Wed Apr 13 18:03:07 2022 -0500
+
+    nothing 4
+
+[33mcommit be6ef42803242843015c04169959221383644688[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Wed Apr 13 17:52:16 2022 -0500
+
+    nothing 3
+
+[33mcommit 211ab2a1ec81706a1acde51e4b59404f64f82de7[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Wed Apr 13 17:43:26 2022 -0500
+
+    modal de confirmar y postear
+
+[33mcommit 425c56fa18f1d392e8af274ef92bfff63a273d2e[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Wed Apr 13 12:51:06 2022 -0500
+
+    send email veridication
+
+[33mcommit e8eb4e732db6ea98ba786ce2bd139700a28326ad[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Wed Apr 13 11:24:58 2022 -0500
+
+    log out y estilos de post
+
+[33mcommit ecf93c1e60929aec390a2bbd0a9a1e6832238fb7[m
+Merge: 062f5d6 efd2b02
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Tue Apr 12 15:18:21 2022 -0500
+
+    Merge pull request #8 from BrithBarboza/main
+    
+    Estilos parte 2
+
+[33mcommit efd2b02e560be6b9029c6a601ec946a2eb201983[m
+Merge: 510406a 062f5d6
+Author: LGomez96 <98616798+LGomez96@users.noreply.github.com>
+Date:   Tue Apr 12 15:18:05 2022 -0500
+
+    Merge branch 'main' into main
+
+[33mcommit 062f5d6f99b837cb5bce60ccd57f5d816ffd8041[m
+Merge: 26e1c35 9a72a29
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Tue Apr 12 14:52:56 2022 -0500
+
+    Merge branch 'main' of https://github.com/LGomez96/LIM017-social-network
+
+[33mcommit 26e1c35e78a047e07bb253491775551f544597ed[m
+Author: LGomez96 <lindagomez96@gmail.com>
+Date:   Tue Apr 12 14:52:31 2022 -0500
+
+    quitando condicion para ingreso del login
+
+[33mcommit 510406a154960f9d19e236a2a600b8ec6c885290[m
+Author: BrithBarboza <brith.19.04@gmail.com>
+Date:   Tue Apr 12 13:17:20 2022 -0500
+
+    estilos parte 2
+
+[33mcommit 9a
