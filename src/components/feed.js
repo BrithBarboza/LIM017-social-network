@@ -4,6 +4,7 @@ import {
   logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
   // getPost,
 } from '../firebaseAuth.js';
+export {colorDiv};
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -210,7 +211,7 @@ export const feed = () => {
 
     querySnapShot.forEach((doc) => {
       html += `
-    <section class = "frame">
+    <section class = "frame" style = "background: ${colorDiv(doc.data().categories)}">
     <div class = 'containerCards'>
     <div id = "firstPartPost">
     <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" class = "profile">
@@ -228,8 +229,8 @@ export const feed = () => {
     <button data-id = "${doc.id}" class = "editPost"> Editar </button>
     <button class ="delete" data-id = "${doc.id}"> Borrar </button>
     </div>
-    <div class = 'showCategories'> ${doc.data().categories}</div>
-    <div class = 'cardsOfData'> ${doc.data().post}</div>
+    <div class = 'showCategories'>${doc.data().categories}</div>
+    <div class = 'cardsOfData'>${doc.data().post}</div>
     </div>
     </div>
     </section>
@@ -237,6 +238,17 @@ export const feed = () => {
 
       // creamos este div para limpiar el html
       postCreatedByUser.innerHTML = html;
+
+      function colorDiv(categories) {
+        if (categories === "Lugares") {
+          return "#D73D6C";
+        } else if (categories === 'Hospedajes') {
+          return '#65B2C6';
+        } else if (categories === 'Restaurantes') {
+          return '#FFBA76';
+        }
+        return "#D57276";
+      }
 
       /* const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
         btnEditPost.forEach((btn) => {

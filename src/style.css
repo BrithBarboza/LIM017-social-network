@@ -105,8 +105,8 @@ img.logoSocialTravel {
 }
 #feed{
     grid-template-areas: "navigate"
-                            "main"
-                            "footer";
+                         "main"
+                         "footer";
 }
 .Menu{
     grid-area: navigate;
@@ -557,7 +557,6 @@ input#inputPass{
 }
 .frame{
     margin: 0 3%;
-    background: #D73D6C;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
