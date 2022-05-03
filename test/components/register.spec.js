@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { createUserWithEmailAndPassword } from '../../src/__mocks__/firebaseLinks';
 
 jest.mock('../../src/firebaseLinks.js');
@@ -16,9 +15,3 @@ describe(' createUserWithEmailAndPassword ', () => {
       });
   });
 });
-=======
-import { register } from '../../src/components/register.js';
-
-jest.mock('../../src/firebaseLinks.js');
-
->>>>>>> a61ba69d1790e6e649dcc68765ea8d423d398a4b

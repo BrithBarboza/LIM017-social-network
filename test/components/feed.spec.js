@@ -1,4 +1,4 @@
-import { colorDiv } from '../../src/components/feed';
+import { colorDiv } from '../../src/components/feed.js';
 
 /* const dataTest = [{
     categories: "Bares",
