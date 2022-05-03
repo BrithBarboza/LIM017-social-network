@@ -4,7 +4,7 @@ import {
   logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
   // getPost,
 } from '../firebaseAuth.js';
-export {colorDiv};
+export default {colorDiv};
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
