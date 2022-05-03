@@ -4,7 +4,6 @@ import {
   logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
   // getPost,
 } from '../firebaseAuth.js';
-export {colorDiv};
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -239,16 +238,7 @@ export const feed = () => {
       // creamos este div para limpiar el html
       postCreatedByUser.innerHTML = html;
 
-      function colorDiv(categories) {
-        if (categories === "Lugares") {
-          return "#D73D6C";
-        } else if (categories === 'Hospedajes') {
-          return '#65B2C6';
-        } else if (categories === 'Restaurantes') {
-          return '#FFBA76';
-        }
-        return "#D57276";
-      }
+  
 
       /* const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
         btnEditPost.forEach((btn) => {
@@ -284,9 +274,21 @@ export const feed = () => {
         });
       });
     });
+
   });
   const callToMain = feedDiv.querySelector('#main');
   callToMain.insertAdjacentElement('beforeend', postCreatedByUser);
 
   return feedDiv;
 };
+
+export function colorDiv(categories) {
+  if (categories === "Lugares") {
+    return "#D73D6C";
+  } else if (categories === 'Hospedajes') {
+    return '#65B2C6';
+  } else if (categories === 'Restaurantes') {
+    return '#FFBA76';
+  }
+  return "#D57276";
+}
