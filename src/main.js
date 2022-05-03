@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { home } from './components/home.js';
 import { register } from './components/register.js';
-import { Login } from './components/login.js';
+import { login } from './components/login.js';
 import { feed } from './components/feed.js';
 import { profile } from './components/profile.js';
 // import { registerWithEmail } from './firebaseAuth.js';
@@ -9,7 +9,7 @@ import { profile } from './components/profile.js';
 const routes = {
   '/': home,
   '/register': register,
-  '/login': Login,
+  '/login': login,
   '/feed': feed,
   '/profile': profile,
   /* '/loginWithGoogle': LoginWithGoogle, */

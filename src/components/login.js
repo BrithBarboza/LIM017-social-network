@@ -2,7 +2,7 @@
 import { onNavigate } from '../main.js'; /* la fx para crear el url. */
 import { manuaLogin } from '../firebaseAuth.js';
 
-export const Login = () => {
+export const login = () => {
   const homeDiv = document.createElement('div');
   homeDiv.id = 'homeDiv';
 
