@@ -19,7 +19,7 @@ describe(' manuaLogin ', () => {
     document.body.innerHTML = '<p id= "errorMessage"></p>';
 
     manuaLogin('tata@adc.com', '1234OK')
-      .catch(() => {
+      .then(() => { // este siginifica que no hay error y por eso el parrafo estará vacío
         expect(document.getElementById('errorMessage').innerHTML).toBe('');
         done();
       });
@@ -27,7 +27,7 @@ describe(' manuaLogin ', () => {
   it('Debe retornar un mensaje de error en el logueo incorrecto del usuario', (done) => {
     document.body.innerHTML = '<p id= "errorMessage"></p>';
     manuaLogin('tata@adc.com', '1234')
-      .then(() => {
+      .catch(() => {
         console.log('catch');
         expect(signInWithEmailAndPassword.mock.calls[0])
           .toEqual([{ _id: 'get-auth' }, 'tata@adc.com', '1234OK']);

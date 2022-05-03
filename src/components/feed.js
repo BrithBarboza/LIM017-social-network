@@ -4,12 +4,12 @@ import {
   logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
   // getPost,
 } from '../firebaseAuth.js';
+export {colorDiv};
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
   const templateFeed = `
   <section id= "feed" class = "contenedorTextos">
-
   <nav class="Menu" id="Menu">
     <div id = "introduction">
     <img src="./imgns/Vectorlogo.svg" class= "logo">
@@ -19,20 +19,16 @@ export const feed = () => {
      <span>Hola + '_______' </span>
     </div>
   </nav>
-
   <div id = "main">
   <h2 class="containerH2"><center>Descubre un nuevo lugar para visitar</center></h2>
-
   <div id = "btnPostAndPhoto">
   <img id = "photoProfile" class = "profile">
   <button class = "cta" > ¿Quiéres contarnos tu experiencia? </button>
   </div>
   </div>
-
   <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
   <form id ="postIt" class ="postFedd">
-
   <div class = "textAndSelect">
   <span class = "textModal">Escribe tu reseña</span>
   <div id = "categoriesBtns" class ="filter">
@@ -44,12 +40,9 @@ export const feed = () => {
   </select>
   </div>
   </div>
-
   <input type = "text" class = "title" placeholder = ¿Cómo te gustaría nombrar a tu reseña?" id = "title">
   <input type = "text" class = "inputPost" placeholder = "¿Qué es lo más impresionante de tu visita? Cuéntanos..." id="postBtn">
-
   <p class = "close">X</p>
-
   <div id = "containerIconTransports">
   <span>Selecciona el/los transporte/s que usaste para llegar aquí</span>
   <div id = "TransportButtons">
@@ -61,13 +54,11 @@ export const feed = () => {
    <i id = "motorcycle"><img class = "transIcon" src = "./imgns/transportation_motorcycle.svg"></i>
   </div>
   </div>
-
   <div class = "postButtons">
   <button type = "button" id = "postPhotosButton" class = "modalButton">Fotos</button>
   <input type = "submit"  id = "postButton" class = "modalButton" value = "Publicar">
   </div>
   </form>
-
   <div id = "postConfirm" class= "hide"> 
   <p> ¿Estás seguro de publicar tu reseña? </p>
   <div id= "btnYoN">
@@ -83,11 +74,9 @@ export const feed = () => {
   <button id="postInFeed" class = "yoNButton"> Sí </button>
   <button id="descartPost" class = "yoNButton"> No </button>
   </div>
-
   </div>
   </div>
   </div>
-
   <footer id="footer">
     <span class="content_1"><a>© SOCIAL TRAVEL - Desarrollado por Briggtte B. y Linda G.</a>
       <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
@@ -96,7 +85,6 @@ export const feed = () => {
       <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
         <a>02-123456</a>
       </div>
-
       <div class="Box">
         <h2>SIGUENOS</h2>
         <ul class="red-social">
@@ -114,7 +102,6 @@ export const feed = () => {
       </div>
     </span>
   </footer>
-
   </section>
   `;
 
@@ -224,15 +211,13 @@ export const feed = () => {
 
     querySnapShot.forEach((doc) => {
       html += `
-    <section class = "frame">
+    <section class = "frame" style = "background: ${colorDiv(doc.data().categories)}">
     <div class = 'containerCards'>
-
     <div id = "firstPartPost">
     <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" class = "profile">
     <label class = "nameOfProfileCard">Chris Martins</label>
     <a href="" class="fa-regular fa-heart" width = "40px" height = "40px"></a>
     </div>
-
     <div id = "secondPartPost">
     <div id = 'headerOfPost'>
     <div class = "infoOfPost">
@@ -244,17 +229,26 @@ export const feed = () => {
     <button data-id = "${doc.id}" class = "editPost"> Editar </button>
     <button class ="delete" data-id = "${doc.id}"> Borrar </button>
     </div>
-
-    <div class = 'showCategories'> ${doc.data().categories}</div>
-    <div class = 'cardsOfData'> ${doc.data().post}</div>
+    <div class = 'showCategories'>${doc.data().categories}</div>
+    <div class = 'cardsOfData'>${doc.data().post}</div>
     </div>
-
     </div>
     </section>
     `;
 
       // creamos este div para limpiar el html
       postCreatedByUser.innerHTML = html;
+
+      function colorDiv(categories) {
+        if (categories === "Lugares") {
+          return "#D73D6C";
+        } else if (categories === 'Hospedajes') {
+          return '#65B2C6';
+        } else if (categories === 'Restaurantes') {
+          return '#FFBA76';
+        }
+        return "#D57276";
+      }
 
       /* const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
         btnEditPost.forEach((btn) => {
@@ -267,18 +261,15 @@ export const feed = () => {
          modal.classList.toggle('modal-close');
          postConfirm.classList.add('hide');
          postConfirm.classList.remove('postconfirm');
-
          const postEditionConfirm = feedDiv.querySelector('#editionPost');
           // postEditionConfirm.classList.add('');
          postEditionConfirm.classList.add('hide');
-
          let post = feedDiv.querySelector('.inputPost').value;
         let title = feedDiv.querySelector('.title').value;
         let categories = feedDiv.querySelector('#categories').value;
         title = dataPost.title;
         post = dataPost.post;
         console.log(post);
-
         categories = dataPost.categories;
       }).catch((error) => {
        console.log(error);
