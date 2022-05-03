@@ -13,7 +13,7 @@ describe('onGetPostInRealTime', () => {
 describe(' manuaLogin ', () => {
   // done es un callback que usamos para decirle a jest que nuestro cod es asíncrono.
   it('Debe ser  una función', () => {
-    //expect(typeof manuaLogin).toBe('function');
+    // expect(typeof manuaLogin).toBe('function');
   });
   it('No debe retornar un mensaje de error en el logueo incorrecto del usuario', (done) => {
     document.body.innerHTML = '<p id= "errorMessage"></p>';

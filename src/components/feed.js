@@ -2,8 +2,20 @@
 import { onNavigate } from '../main.js';
 import {
   logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
-  // getPost,
+  getPost,
 } from '../firebaseAuth.js';
+import { updateDoc } from '../firebaseLinks.js';
+
+export function colorDiv(categories) {
+  if (categories === 'Lugares') {
+    return '#D73D6C';
+  } if (categories === 'Hospedajes') {
+    return '#65B2C6';
+  } if (categories === 'Restaurantes') {
+    return '#FFBA76';
+  }
+  return '#D57276';
+}
 
 export const feed = () => {
   const feedDiv = document.createElement('div');
@@ -24,6 +36,8 @@ export const feed = () => {
   <img id = "photoProfile" class = "profile">
   <button class = "cta" > ¿Quiéres contarnos tu experiencia? </button>
   </div>
+  <div id = "postCreatedByUser" class = "cardsPosted"></div>
+
   </div>
   <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
@@ -66,17 +80,8 @@ export const feed = () => {
   </div>
   </div>
   </div>
-  
-  <div class = "hide" id =" editionPost">
-  <p> ¿Estás seguro de editar tu reseña? </p>
-  <div id= "btnYoN">
-  <button id="postInFeed" class = "yoNButton"> Sí </button>
-  <button id="descartPost" class = "yoNButton"> No </button>
   </div>
-  </div>
-  </div>
-  </div>
-  <footer id="footer">
+    <footer id="footer">
     <span class="content_1"><a>© SOCIAL TRAVEL - Desarrollado por Briggtte B. y Linda G.</a>
       <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
         <a>01-123456</a>
@@ -177,40 +182,30 @@ export const feed = () => {
     postIt.reset();
   });
 
-  const btnLogOut = document.createElement('a');
-  btnLogOut.setAttribute('href', '');
-  btnLogOut.id = 'logOut';
-  btnLogOut.className = 'btnLogOut';
-  btnLogOut.textContent = 'Cerrar Sesión';
-
-  feedDiv.insertAdjacentElement('beforeend', btnLogOut);
-
   const goToProfile = feedDiv.querySelector('#photoProfile');
   goToProfile.addEventListener('click', () => {
     onNavigate('/profile');
   });
 
-  const logOut = feedDiv.querySelector('#logOut');
-  logOut.addEventListener('click', (e) => {
-    e.preventDefault();
-    logOutSocialTravel();
-    onNavigate('/');
-  });
-
   const profileDiv = document.createElement('div');
   profileDiv.id = 'profileDiv';
+  const postCreatedByUser = feedDiv.querySelector('#postCreatedByUser');
 
-  const postCreatedByUser = document.createElement('div');
-  postCreatedByUser.id = 'postCreatedByUser';
-  postCreatedByUser.className = 'cardsPosted';
+  const postBtn = feedDiv.querySelector('#postBtn');
+  const titleBtn = feedDiv.querySelector('#title');
+  const categoriesBtn = feedDiv.querySelector('#categories');
+
+  let editStatus = false;
+  let id = '';
 
   onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
     // variable con string vacio para que cada que se recorra añadamos info al contenedor
     let html = '';
 
     querySnapShot.forEach((doc) => {
+      const infoPost = doc.data();
       html += `
-    <section class = "frame" style = "background: ${colorDiv(doc.data().categories)}">
+    <section class = "frame" style = "background: ${colorDiv(infoPost.categories)}">
     <div class = 'containerCards'>
     <div id = "firstPartPost">
     <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" class = "profile">
@@ -220,7 +215,7 @@ export const feed = () => {
     <div id = "secondPartPost">
     <div id = 'headerOfPost'>
     <div class = "infoOfPost">
-    <div class = "titleOfData">${doc.data().title}</div>
+    <div class = "titleOfData">${infoPost.title}</div>
     <div class = "dateOfData">22/04/22 11:54 hs.</div>
     </div>
   
@@ -228,67 +223,71 @@ export const feed = () => {
     <button data-id = "${doc.id}" class = "editPost"> Editar </button>
     <button class ="delete" data-id = "${doc.id}"> Borrar </button>
     </div>
-    <div class = 'showCategories'>${doc.data().categories}</div>
-    <div class = 'cardsOfData'>${doc.data().post}</div>
+    <div class = 'showCategories'>${infoPost.categories}</div>
+    <div class = 'cardsOfData'>${infoPost.post}</div>
     </div>
     </div>
     </section>
     `;
+    });
 
-      // creamos este div para limpiar el html
-      postCreatedByUser.innerHTML = html;
+    // creamos este div para limpiar el html
+    postCreatedByUser.innerHTML = html;
 
-  
+    const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
+    btnEditPost.forEach((btn) => {
+      btn.addEventListener('click', async (event) => {
+        modalC.style.opacity = '1';
+        modalC.style.visibility = 'visible';
+        modal.classList.toggle('modal-close');
 
-      /* const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
-        btnEditPost.forEach((btn) => {
-        btn.addEventListener('click', (event) => {
-        getPost(event.target.dataset.id).then((doc) => {
-        const dataPost = doc.data();
-         // Volver a abrir el modal
-          modalC.style.opacity = '1';
-         modalC.style.visibility = 'visible';
-         modal.classList.toggle('modal-close');
-         postConfirm.classList.add('hide');
-         postConfirm.classList.remove('postconfirm');
-         const postEditionConfirm = feedDiv.querySelector('#editionPost');
-          // postEditionConfirm.classList.add('');
-         postEditionConfirm.classList.add('hide');
-         let post = feedDiv.querySelector('.inputPost').value;
-        let title = feedDiv.querySelector('.title').value;
-        let categories = feedDiv.querySelector('#categories').value;
-        title = dataPost.title;
-        post = dataPost.post;
-        console.log(post);
-        categories = dataPost.categories;
-      }).catch((error) => {
-       console.log(error);
-      });
-      });
-      }); */
+        const docs = await getPost(event.target.dataset.id);
+        const dataPost = docs.data();
+        console.log(dataPost);
+        postBtn.value = dataPost.post;
+        titleBtn.value = dataPost.title;
+        categoriesBtn.value = dataPost.categories;
 
-      const btnDelete = postCreatedByUser.querySelectorAll('.delete');
-      btnDelete.forEach((btn) => {
-        btn.addEventListener('click', ({ target: { dataset } }) => {
-          deletePost(dataset.id);
-        });
+        editStatus = true;
+        id = docs.id;
+        // console.log(id);
       });
     });
 
+    const btnDelete = postCreatedByUser.querySelectorAll('.delete');
+    btnDelete.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+      });
+    });
   });
-  const callToMain = feedDiv.querySelector('#main');
-  callToMain.insertAdjacentElement('beforeend', postCreatedByUser);
+
+  if (!editStatus) {
+    addPost(postBtn.value, titleBtn.value, categoriesBtn.value);
+  } else {
+    updateDoc(id, {
+      title: titleBtn.value,
+      post: postBtn.value,
+      categories: categoriesBtn.value,
+    });
+
+    editStatus = false;
+  }
+
+  const btnLogOut = document.createElement('a');
+  btnLogOut.setAttribute('href', '');
+  btnLogOut.id = 'logOut';
+  btnLogOut.className = 'btnLogOut';
+  btnLogOut.textContent = 'Cerrar Sesión';
+
+  feedDiv.insertAdjacentElement('beforeend', btnLogOut);
+
+  const logOut = feedDiv.querySelector('#logOut');
+  logOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    logOutSocialTravel();
+    onNavigate('/');
+  });
 
   return feedDiv;
 };
-
-export function colorDiv(categories) {
-  if (categories === "Lugares") {
-    return "#D73D6C";
-  } else if (categories === 'Hospedajes') {
-    return '#65B2C6';
-  } else if (categories === 'Restaurantes') {
-    return '#FFBA76';
-  }
-  return "#D57276";
-}

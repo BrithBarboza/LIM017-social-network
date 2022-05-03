@@ -16,6 +16,8 @@ import {
   // getDocs,
   getDoc,
   onSnapshot,
+  updateDoc,
+
 } from './firebaseLinks.js';
 
 import { app } from './Config.js';
@@ -57,3 +59,4 @@ export const addPost = (post, title, categories) => addDoc(collection(db, 'Posts
 export const onGetPostInRealTime = (callback) => onSnapshot(collection(db, 'Posts'), callback);
 export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
 export const getPost = (id) => getDoc(doc(db, 'Posts', id));
+export const updatePost = (id, newField) => updateDoc(doc(db, 'Posts', id), newField);
