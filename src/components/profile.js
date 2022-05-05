@@ -10,14 +10,12 @@ export const profile = () => {
   postCreatedByUser.id = 'postCreatedByUser';
   postCreatedByUser.className = 'cardsPosted';
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
-      // variable con string vacio para que cada que se recorra añadamos info al contenedor
-      let html = '';
+  onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
+    // variable con string vacio para que cada que se recorra añadamos info al contenedor
+    let html = '';
 
-      querySnapShot.forEach((doc) => {
-        const postInProfile = doc.data();
-        html += `
+    querySnapShot.forEach((doc) => {
+      html += `
         <section class = "frame">
     <div class = 'containerCards'>
 
@@ -46,11 +44,10 @@ export const profile = () => {
     </div>
     </section>
     `;
-      });
-
-      // creamos este div para limpiar el html
-      postCreatedByUser.innerHTML = html;
     });
+
+    // creamos este div para limpiar el html
+    postCreatedByUser.innerHTML = html;
   });
 
   profileDiv.insertAdjacentElement('beforeend', postCreatedByUser);

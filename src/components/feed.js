@@ -38,7 +38,7 @@ export const feed = () => {
   </div>
   <div id = "postCreatedByUser" class = "cardsPosted"></div>
 
-  </div>
+ 
   <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
   <form id ="postIt" class ="postFedd">
@@ -78,6 +78,8 @@ export const feed = () => {
   <button id="postInFeed" class = "yoNButton"> Sí </button>
   <button id="descartPost" class = "yoNButton"> No </button>
   </div>
+  </div>
+
   </div>
   </div>
   </div>
@@ -175,6 +177,8 @@ export const feed = () => {
         setTimeout(() => {
           modalC.style.opacity = '0';
           modalC.style.visibility = 'hidden';
+          postConfirm.classList.add('hide');
+          postConfirm.classList.remove('postConfirm');
         }, 800);
       });
     }
@@ -234,6 +238,13 @@ export const feed = () => {
     // creamos este div para limpiar el html
     postCreatedByUser.innerHTML = html;
 
+    const btnDelete = postCreatedByUser.querySelectorAll('.delete');
+    btnDelete.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deletePost(dataset.id);
+      });
+    });
+
     const btnEditPost = postCreatedByUser.querySelectorAll('.editPost');
     btnEditPost.forEach((btn) => {
       btn.addEventListener('click', async (event) => {
@@ -245,34 +256,32 @@ export const feed = () => {
         const dataPost = docs.data();
         console.log(dataPost);
         postBtn.value = dataPost.post;
+        console.log(postBtn.value);
         titleBtn.value = dataPost.title;
-        categoriesBtn.value = dataPost.categories;
+        categoriesBtn.value = dataPost.categoriesBtn;
 
         editStatus = true;
         id = docs.id;
         // console.log(id);
       });
     });
-
-    const btnDelete = postCreatedByUser.querySelectorAll('.delete');
-    btnDelete.forEach((btn) => {
-      btn.addEventListener('click', ({ target: { dataset } }) => {
-        deletePost(dataset.id);
-      });
-    });
   });
+  const form = feedDiv.querySelector('#postIt');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-  if (!editStatus) {
-    addPost(postBtn.value, titleBtn.value, categoriesBtn.value);
-  } else {
-    updateDoc(id, {
-      title: titleBtn.value,
-      post: postBtn.value,
-      categories: categoriesBtn.value,
-    });
+    if (editStatus) {
+      console.log('si esta editando');
+      // updateDoc(id, {
+      //   title: titleBtn.value,
+      //   post: postBtn.value,
+      //   categories: categoriesBtn.value,
+      // });
 
-    editStatus = false;
-  }
+      // editStatus = false;
+    }
+    form.reset();
+  });
 
   const btnLogOut = document.createElement('a');
   btnLogOut.setAttribute('href', '');

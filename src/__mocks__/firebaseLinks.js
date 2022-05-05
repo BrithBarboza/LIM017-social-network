@@ -9,7 +9,12 @@ export const deleteDoc = () => Promise.resolve({});
 export const doc = () => Promise.resolve({});
 export const onSnapshot = () => Promise.resolve({});
 export const createUserWithEmailAndPassword = jest.fn(() => Promise.resolve({}));
-export const signInWithEmailAndPassword = () => jest.fn(() => Promise.reject(new Error({ code: 'auth/wrong-password' })));
+export const signInWithEmailAndPassword = jest.fn(() => Promise.resolve({
+  user: {
+    email: 'brith@adn.com',
+    password: '123456',
+  },
+}));
 export const signInWithPopup = () => jest.fn(() => Promise.resolve({}));
 
 // export {
