@@ -30,6 +30,7 @@ export const feed = () => {
      <span>Hola + '_______' </span>
     </div>
   </nav>
+
   <div id = "main">
   <h2 class="containerH2"><center>Descubre un nuevo lugar para visitar</center></h2>
   <div id = "btnPostAndPhoto">
@@ -38,8 +39,7 @@ export const feed = () => {
   </div>
   <div id = "postCreatedByUser" class = "cardsPosted"></div>
 
- 
-  <div class ="modal-container">
+   <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
   <form id ="postIt" class ="postFedd">
   <div class = "textAndSelect">
@@ -83,6 +83,7 @@ export const feed = () => {
   </div>
   </div>
   </div>
+  </div>
     <footer id="footer">
     <span class="content_1"><a>© SOCIAL TRAVEL - Desarrollado por Briggtte B. y Linda G.</a>
       <div class="contacto"><a href="#" class="fas fa-phone-alt"></a>
@@ -106,7 +107,7 @@ export const feed = () => {
       <img src="./imgns/Vectorlogo.svg">
       <small>©2022 - Todos los derechos Reservados.</small>
       </div>
-    </span>
+    
   </footer>
   </section>
   `;
