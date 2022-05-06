@@ -152,6 +152,9 @@ export const feed = () => {
     const title = feedDiv.querySelector('.title').value;
     const categories = feedDiv.querySelector('#categories').value;
 
+    const activeEdit = modal.getAttribute('data-edit');
+    const changeDataId = modal.getAttribute('data-id');
+
     if (post !== '') {
       const postConfirm = feedDiv.querySelector('#postConfirm');
       postConfirm.classList.remove('hide');
@@ -172,15 +175,24 @@ export const feed = () => {
       });
       postInFeed.addEventListener('click', () => {
         e.preventDefault();
-        alert(post);
-        addPost(post, title, categories);
-        modal.classList.toggle('modal-close');
-        setTimeout(() => {
-          modalC.style.opacity = '0';
-          modalC.style.visibility = 'hidden';
-          postConfirm.classList.add('hide');
-          postConfirm.classList.remove('postConfirm');
-        }, 800);
+        if (activeEdit === 'active') {
+          debugger;
+          updateDoc(changeDataId, {
+            title,
+            post,
+            categories,
+          });
+        } else {
+          alert(post);
+          addPost(post, title, categories);
+          modal.classList.toggle('modal-close');
+          setTimeout(() => {
+            modalC.style.opacity = '0';
+            modalC.style.visibility = 'hidden';
+            postConfirm.classList.add('hide');
+            postConfirm.classList.remove('postConfirm');
+          }, 800);
+        }
       });
     }
     const postIt = feedDiv.querySelector('#postIt');
@@ -199,9 +211,6 @@ export const feed = () => {
   const postBtn = feedDiv.querySelector('#postBtn');
   const titleBtn = feedDiv.querySelector('#title');
   const categoriesBtn = feedDiv.querySelector('#categories');
-
-  let editStatus = false;
-  let id = '';
 
   onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
     // variable con string vacio para que cada que se recorra añadamos info al contenedor
@@ -252,6 +261,7 @@ export const feed = () => {
         modalC.style.opacity = '1';
         modalC.style.visibility = 'visible';
         modal.classList.toggle('modal-close');
+        modal.setAttribute('data-edit', 'active');
 
         const docs = await getPost(event.target.dataset.id);
         const dataPost = docs.data();
@@ -261,27 +271,10 @@ export const feed = () => {
         titleBtn.value = dataPost.title;
         categoriesBtn.value = dataPost.categoriesBtn;
 
-        editStatus = true;
-        id = docs.id;
+        modal.setAttribute('data-id', docs.id);
         // console.log(id);
       });
     });
-  });
-  const form = feedDiv.querySelector('#postIt');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    if (editStatus) {
-      console.log('si esta editando');
-      // updateDoc(id, {
-      //   title: titleBtn.value,
-      //   post: postBtn.value,
-      //   categories: categoriesBtn.value,
-      // });
-
-      // editStatus = false;
-    }
-    form.reset();
   });
 
   const btnLogOut = document.createElement('a');

@@ -33,7 +33,7 @@ export const onNavigate = (pathname) => {
     rootDiv.appendChild(component());
   };
 
-  rootDiv.appendChild(component());
+  // rootDiv.appendChild(component());
 
   return rootDiv.appendChild(routes[pathname]());
 };
