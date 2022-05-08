@@ -3,6 +3,7 @@ import { onNavigate } from '../main.js';
 import {
   logOutSocialTravel, addPost, onGetPostInRealTime, deletePost,
   getPost,
+  updatePost,
 } from '../firebaseAuth.js';
 import { updateDoc } from '../firebaseLinks.js';
 
@@ -145,59 +146,51 @@ export const feed = () => {
     }
   });
 
-  const sendPost = feedDiv.querySelector('#postButton');
-  sendPost.addEventListener('click', (e) => {
-    e.preventDefault();
-    const post = feedDiv.querySelector('.inputPost').value;
-    const title = feedDiv.querySelector('.title').value;
-    const categories = feedDiv.querySelector('#categories').value;
+  // const sendPost = feedDiv.querySelector('#postButton');
+  // sendPost.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   const post = feedDiv.querySelector('.inputPost').value;
+  //   const title = feedDiv.querySelector('.title').value;
+  //   const categories = feedDiv.querySelector('#categories').value;
 
-    const activeEdit = modal.getAttribute('data-edit');
-    const changeDataId = modal.getAttribute('data-id');
+  //   // const activeEdit = modal.getAttribute('data-edit');
+  //   // const changeDataId = modal.getAttribute('data-id');
 
-    if (post !== '') {
-      const postConfirm = feedDiv.querySelector('#postConfirm');
-      postConfirm.classList.remove('hide');
-      postConfirm.classList.add('postConfirm');
+  //   if (post !== '') {
+  //     const postConfirm = feedDiv.querySelector('#postConfirm');
+  //     postConfirm.classList.remove('hide');
+  //     postConfirm.classList.add('postConfirm');
 
-      const descartPost = feedDiv.querySelector('#descartPost');
-      const postInFeed = feedDiv.querySelector('#postInFeed');
+  //     const descartPost = feedDiv.querySelector('#descartPost');
+  //     const postInFeed = feedDiv.querySelector('#postInFeed');
 
-      descartPost.addEventListener('click', () => {
-        e.preventDefault();
-        modal.classList.toggle('modal-close');
-        setTimeout(() => {
-          modalC.style.opacity = '0';
-          modalC.style.visibility = 'hidden';
-          postConfirm.classList.add('hide');
-          postConfirm.classList.remove('postConfirm');
-        }, 800);
-      });
-      postInFeed.addEventListener('click', () => {
-        e.preventDefault();
-        if (activeEdit === 'active') {
-          debugger;
-          updateDoc(changeDataId, {
-            title,
-            post,
-            categories,
-          });
-        } else {
-          alert(post);
-          addPost(post, title, categories);
-          modal.classList.toggle('modal-close');
-          setTimeout(() => {
-            modalC.style.opacity = '0';
-            modalC.style.visibility = 'hidden';
-            postConfirm.classList.add('hide');
-            postConfirm.classList.remove('postConfirm');
-          }, 800);
-        }
-      });
-    }
-    const postIt = feedDiv.querySelector('#postIt');
-    postIt.reset();
-  });
+  //     descartPost.addEventListener('click', () => {
+  //       e.preventDefault();
+  //       modal.classList.toggle('modal-close');
+  //       setTimeout(() => {
+  //         modalC.style.opacity = '0';
+  //         modalC.style.visibility = 'hidden';
+  //         postConfirm.classList.add('hide');
+  //         postConfirm.classList.remove('postConfirm');
+  //       }, 800);
+  //     });
+  //     postInFeed.addEventListener('click', () => {
+  //       e.preventDefault();
+  //       alert(post);
+  //       addPost(post, title, categories);
+  //       modal.classList.toggle('modal-close');
+  //       setTimeout(() => {
+  //         modalC.style.opacity = '0';
+  //         modalC.style.visibility = 'hidden';
+  //         postConfirm.classList.add('hide');
+  //         postConfirm.classList.remove('postConfirm');
+  //       }, 800);
+  //       // }
+  //     });
+  //   }
+  //   const postIt = feedDiv.querySelector('#postIt');
+  //   postIt.reset();
+  // });
 
   const goToProfile = feedDiv.querySelector('#photoProfile');
   goToProfile.addEventListener('click', () => {
@@ -208,9 +201,19 @@ export const feed = () => {
   profileDiv.id = 'profileDiv';
   const postCreatedByUser = feedDiv.querySelector('#postCreatedByUser');
 
-  const postBtn = feedDiv.querySelector('#postBtn');
-  const titleBtn = feedDiv.querySelector('#title');
+  const sendPost = feedDiv.querySelector('#postButton');
+
+  const postBtn = feedDiv.querySelector('.inputPost');
+  const titleBtn = feedDiv.querySelector('.title');
   const categoriesBtn = feedDiv.querySelector('#categories');
+
+  const postConfirm = feedDiv.querySelector('#postConfirm');
+
+  const descartPost = feedDiv.querySelector('#descartPost');
+  const postInFeed = feedDiv.querySelector('#postInFeed');
+
+  let editStatus = false;
+  let id = '';
 
   onGetPostInRealTime((querySnapShot) => { // console.log(querySnapShot);
     // variable con string vacio para que cada que se recorra añadamos info al contenedor
@@ -266,15 +269,42 @@ export const feed = () => {
         const docs = await getPost(event.target.dataset.id);
         const dataPost = docs.data();
         console.log(dataPost);
+        categoriesBtn.value = dataPost.categories;
+        titleBtn.value = dataPost.title;
         postBtn.value = dataPost.post;
         console.log(postBtn.value);
-        titleBtn.value = dataPost.title;
-        categoriesBtn.value = dataPost.categoriesBtn;
+        editStatus = true;
+        id = docs.id;
 
-        modal.setAttribute('data-id', docs.id);
+        // modal.setAttribute('data-id', docs);
         // console.log(id);
       });
     });
+  });
+
+  sendPost.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!editStatus) {
+      addPost(categoriesBtn.value, titleBtn.value, postBtn.value);
+    } else {
+      updatePost(id, {
+        categories: categoriesBtn.value,
+        title: titleBtn.value,
+        post: postBtn.value,
+      });
+      editStatus = false;
+      id = '';
+    }
+    modal.classList.toggle('modal-close');
+    setTimeout(() => {
+      modalC.style.opacity = '0';
+      modalC.style.visibility = 'hidden';
+      postConfirm.classList.add('hide');
+      postConfirm.classList.remove('postConfirm');
+    }, 800);
+
+    const postIt = feedDiv.querySelector('#postIt');
+    postIt.reset();
   });
 
   const btnLogOut = document.createElement('a');
