@@ -24,11 +24,15 @@ describe('Test de color de section según categorías', () => {
 describe('SendPost', () => {
   it('si no es publicación vacia retorna true', () => {
     const result = addPost();
-    const title = result.querySelector('#divTitle');
-    const text = result.querySelector('#divText');
-    const btn = result.querySelector('#buttonPublication');
-    title.innerText = 'Tips para programadores';
-    text.innerText = '5 tips que deberias saber';
+    const title = result.querySelector('.title');
+    const post = result.querySelector('.inputPost');
+    const categories = result.querySelector('#categories');
+
+    const btn = result.querySelector('#postButton');
+    title.innerText = 'Hotel Palma azul';
+    categories.innerText = 'Lugares';
+    post.innerText = 'Es un hotel ubicado en las costas de manabí...';
+
     expect(btn.dispatchEvent(new Event('click'))).toBe(true);
   });
 });

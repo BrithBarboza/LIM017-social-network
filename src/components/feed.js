@@ -209,8 +209,8 @@ export const feed = () => {
 
   const postConfirm = feedDiv.querySelector('#postConfirm');
 
-  const descartPost = feedDiv.querySelector('#descartPost');
-  const postInFeed = feedDiv.querySelector('#postInFeed');
+  // const descartPost = feedDiv.querySelector('#descartPost');
+  // const postInFeed = feedDiv.querySelector('#postInFeed');
 
   let editStatus = false;
   let id = '';

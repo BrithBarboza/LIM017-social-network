@@ -1,4 +1,5 @@
 // importamos la funcion que vamos a testear
+import { async } from 'regenerator-runtime';
 import { onGetPostInRealTime, manuaLogin } from '../src/firebaseAuth';
 // import { collection } from '../src/firebaseLinks';
 import { signInWithEmailAndPassword } from '../src/firebaseLinks.js';
@@ -24,14 +25,23 @@ describe(' manuaLogin ', () => {
         done();
       });
   });
-  it('Debe retornar un mensaje de error en el logueo incorrecto del usuario', (done) => {
+  it('Debe retornar un mensaje de error en el logueo incorrecto del usuario', () => {
     document.body.innerHTML = '<p id= "errorMessage"></p>';
+
     manuaLogin('tata@adc.com', '1234')
       .catch(() => {
         console.log('catch');
-        expect(signInWithEmailAndPassword.mock.calls[0])
-          .toEqual([{ _id: 'get-auth' }, 'tata@adc.com', '1234OK']);
-        done();
+        setTimeout(() => {
+          expect(signInWithEmailAndPassword.mock.calls[0])
+            .toEqual([{ _id: 'get-auth' }, 'tata@adc.com', '1234OK']);
+        }, 2000);
+        
       });
+  });
+});
+describe('', () => {
+  it('Muestra un mensaje de error', () => {
+    const signUpInWithEmailAndPassword = jest.fn();
+    signUpInWithEmailAndPassword.mockRejectedValue({ error: 'password/mismatch' });
   });
 });
