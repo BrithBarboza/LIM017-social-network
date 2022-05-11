@@ -13,7 +13,6 @@ import {
   collection,
   deleteDoc,
   doc,
-  // getDocs,
   getDoc,
   onSnapshot,
   updateDoc,
@@ -55,7 +54,6 @@ export const logOutSocialTravel = () => {
 const db = getFirestore(app);
 
 export const addPost = (post, title, categories) => addDoc(collection(db, 'Posts'), { post, title, categories });
-// export const getPosts = () => getDocs(collection(db, 'Posts'));
 export const onGetPostInRealTime = (callback) => onSnapshot(collection(db, 'Posts'), callback);
 export const deletePost = (id) => deleteDoc(doc(db, 'Posts', id));
 export const getPost = (id) => getDoc(doc(db, 'Posts', id));

@@ -28,7 +28,7 @@ export const feed = () => {
     <a title="Mi perfil" href=""><img src = "" class = "profile" alt="Mi Perfil" /></a>
     </div>
     <div id = "regards">
-     <span>Hola + '_______' </span>
+     <spa>Bienvenido(a)</span>
     </div>
   </nav>
 
@@ -42,7 +42,7 @@ export const feed = () => {
 
    <div class ="modal-container">
   <div id = "containerPost" class = "modal modal-close">
-  <form id ="postIt" class ="postFedd">
+  <form id ="postIt" class ="postFeed">
   <div class = "textAndSelect">
   <span class = "textModal">Escribe tu reseña</span>
   <div id = "categoriesBtns" class ="filter">
@@ -227,7 +227,6 @@ export const feed = () => {
     <div id = "firstPartPost">
     <img src = "./imgns/imageProfile.jpg" id = "photoProfileCard" class = "profile">
     <label class = "nameOfProfileCard">Chris Martins</label>
-    <a href="" class="fa-regular fa-heart" width = "40px" height = "40px"></a>
     </div>
     <div id = "secondPartPost">
     <div id = 'headerOfPost'>

@@ -23,11 +23,3 @@ export const signInWithEmailAndPassword = jest.fn(() => Promise.resolve({
   },
 }));
 export const signInWithPopup = () => jest.fn(() => Promise.resolve({}));
-
-// export {
-
-//   // signInWithPopup,
-
-//   // signOut,
-//   // sendEmailVerification,
-// };
